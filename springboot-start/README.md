@@ -1,1 +1,1 @@
-`新建springboot项目示例`
+`新建springboot项目示例，具体参照项目下的doc文件`
