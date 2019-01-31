@@ -1,4 +1,4 @@
-#1、mysql-connector-java 6.0以上版本连接数据库问题
+# 1、mysql-connector-java 6.0以上版本连接数据库问题
 
 1、Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
 
@@ -8,7 +8,7 @@
 
 > 解决：在jdbc连接url中加入属性serverTimezone来指定时区
 
-#2、mybatis配置及包扫描检查
+# 2、mybatis配置及包扫描检查
 
 > 检查配置文件是否写对：
   
