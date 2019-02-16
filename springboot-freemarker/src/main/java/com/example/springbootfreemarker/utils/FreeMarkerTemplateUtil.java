@@ -28,8 +28,10 @@ public class FreeMarkerTemplateUtil {
         String htmlText = "";
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
         try {
-            //加载模板路径
+            //加载模板路径，此处对应在resource目录下
             configuration.setClassLoaderForTemplateLoading(ClassLoader.getSystemClassLoader(),"ftl");
+            //或者
+//            configuration.setClassForTemplateLoading(this.getClass(), "/com/mail/ftl");
             //获取对应名称的模板
             Template template = configuration.getTemplate(templateName);
             //渲染模板为html
