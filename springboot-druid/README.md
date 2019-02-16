@@ -36,7 +36,7 @@
  spring.datasource.druid.connection-properties=druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 >  合并多个DruidDataSource的监控数据
  spring.datasource.druid.use-global-data-source-stat=true
- 
+
 #druid依赖引入问题
 当使用springboot管理druid相关配置时，使用依赖如下：
     
@@ -56,3 +56,5 @@
     </dependency>
    
 此时需要自己手动代码解析相关的配置项，否则druid监控的SQL监控将无数据
+
+> springboot集成druid只需要加上上面的配置以及引入一下依赖即可，很简单
