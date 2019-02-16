@@ -1,10 +1,69 @@
 #设置应用端口
 server:
-  port: 8088
+  port: 8080
 
-#数据库配置
 spring:
+  #数据库配置
   datasource:
-    url: jdbc:mysql://localhost:3306/shiro?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
-    username: xxx
-    password: xxx
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+    username: root
+    password: root
+    druid:
+        # 初始连接数
+        initial-size: 10
+        # 最大连接池数量
+        max-active: 100
+        # 最小连接池数量
+        min-idle: 10
+        # 配置获取连接等待超时的时间
+        max-wait: 60000
+        # 打开PSCache，并且指定每个连接上PSCache的大小
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+        # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+        timeBetweenEvictionRunsMillis: 60000
+        # 配置一个连接在池中最小生存的时间，单位是毫秒
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1 FROM DUAL
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        stat-view-servlet:
+            enabled: true
+            url-pattern: /druid/*
+        filter:
+            stat:
+                log-slow-sql: true
+                slow-sql-millis: 1000
+                merge-sql: false
+            wall:
+                config:
+                    multi-statement-allow: true
+
+  #freemarker配置
+  freemarker:
+    allow-request-override: false
+    allow-session-override: false
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: true
+    prefer-file-system-access: true
+    suffix: .ftl
+#    template-loader-path: classpath:/templates/
+
+# MyBatis
+mybatis:
+    type-aliases-package: com.example.springbootshiro.domain
+    mapper-locations: classpath:/mybatis/*.xml
+    #sql打印配置
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
