@@ -31,10 +31,10 @@ pom引入thymeleaf依赖,其他无需配置
 1.1  标准表达式介绍
    它们分为四类：
    
-   1.变量表达式
+   1. 变量表达式
    2. 选择表达式（星号表达式）
    3. 消息表达式（井号表达式，资源表达式）通常做国际化
-   4.URL表达式
+   4. URL表达式
 1.2  标准表达式详解
    1.变量表达式
      变量表达式用于访问容器上下文环境中的变量，功能和JSTL中的${}相同。比如我要在Controllar中用model.addAttribute向前端传入一个对象，那么前端如何接受呢？ 以下是例子。
@@ -52,8 +52,6 @@ pom引入thymeleaf依赖,其他无需配置
    <input th:text="${ID}" ></input >
    <input th:if="${UL.Power} == 1" >管理员</input >
      访问此页面，效果如下
-   
-   
    
    JAVA代码就不解释了，很简单。解释下HTML部分，th:text=" " 和 th:if=" " 是thymeleaf的一个属性，先不做解释。其$(ID)，$(UL.Power)中的"UL"是Java代码中model传来的Key值，".Power"是UserPower对象中的一个属性。
    
@@ -216,3 +214,72 @@ pom引入thymeleaf依赖,其他无需配置
      <input type="text" value="" th:field="*{username}"></input>
      <input type="text" value="" th:field="*{user[0].username}"></input>
      </form>
+     
+## thymeleaf 基本表达式
+   1、 ${}
+   变量表达式（美元表达式，哈哈），用于访问容器上下文环境中的变量，功能同jstl中${}。
+   例如：
+   
+       protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+       throws ServletException, IOException {
+       ...
+       //Create Servlet context
+       WebContext ctx = new WebContext(req, resp, this.getServletContext(), req.getLocale());
+       ctx.setVariable("helloword","hello thymeleaf,wellcome!");
+       //Executing template engine
+       templateEngine.process("home", ctx, resp.getWriter());
+       }
+   
+   模板页面访问变量
+   <p><span th:text="${helloword}"></span></p>
+    
+   2、 *{}
+   选择表达式（星号表达式）。选择表达式与变量表达式有一个重要的区别：选择表达式计算的是选定的对象，而不是整个环境变量映射。也就是：只要是没有选择的对象，选择表达式与变量表达式的语法是完全一样的。那什么是选择的对象呢？是一个：th:object对象属性绑定的对象。
+   例如：
+   
+       <div th: obj ect=" ${session. user}" >
+       <p>Name: <span th: text=" *{firstName}" >Sebastian</span>. </p>
+       <p>Surname: <span th: text=" *{lastName}" >Pepper</span>. </p>
+       <p>Nationality: <span th: text=" *{nationality}" >Saturn</span>. </p>
+       </div>
+   
+   上例中，选择表达式选择的是th:object对象属性绑定的session. user对象中的属性。
+    
+   3、#{}
+   消息表达式（井号表达式，资源表达式）。通常与th:text属性一起使用，指明声明了th:text的标签的文本是#{}中的key所对应的value，而标签内的文本将不会显示。
+   
+    <p th: text=" #{home. welcome}" >This text will not be show! </p>
+   配置文件home.properties中添加
+   
+    home.welcome：home.welcome=this messages is from home.properties!
+   消息表达式通常用于显示页面静态文本，将静态文本维护在properties文件中也方面维护，做国际化等。
+    
+   4、@{}
+   超链接url表达式。
+   例如：
+   
+    <script th:src="@{/resources/js/jquery/jquery.json-2.4.min.js}"
+    
+   5、#maps
+   工具对象表达式。常用于日期、集合、数组对象的访问。这些工具对象就像是java对象，可以访问对应java对象的方法来进行各种操作。
+   例如：
+   
+       <div th:if="${#maps.size(stuReqBean.students[__${rowStat.index}__].score) != 0}">
+       <label>${score.key}:</label><input type="text" th:value="${score.value}"></input>
+       </div>
+       <div th:if="${#maps.isEmpty(stuReqBean.students[__${rowStat.index}__].score)}">
+       ...do something...
+       </div>
+   
+    
+   其他工具对象表达式还有：
+   
+   #dates
+   #calendars
+   #numbers 
+   #strings
+   #objects
+   #bools
+   #arrays
+   #lists
+   #sets
