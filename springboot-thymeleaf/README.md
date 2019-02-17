@@ -274,12 +274,12 @@ pom引入thymeleaf依赖,其他无需配置
     
    其他工具对象表达式还有：
    
-   #dates
-   #calendars
-   #numbers 
-   #strings
-   #objects
-   #bools
-   #arrays
-   #lists
-   #sets
+   * dates
+   * calendars
+   * numbers 
+   * strings
+   * objects
+   * bools
+   * arrays
+   * lists
+   * sets
