@@ -118,6 +118,9 @@ user|org.apache.shiro.web.filter.authc.UserFilter
  表示当前Subject需要权限user:a或user:b。
  ```
 
+## 问题
+> 使用tk.mybatis的XXMapper不要和数据库实体类映射的XXMapper放在同一个包下，不然扫描会出问题
+
 参照：
 
 [让 Apache Shiro保护你的应用](https://www.infoq.cn/article/apache-shiro)
