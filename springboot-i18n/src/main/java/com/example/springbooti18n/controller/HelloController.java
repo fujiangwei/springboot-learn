@@ -40,30 +40,33 @@ public class HelloController {
     @GetMapping(value = "hello")
     public String hello(Model model) {
 
-        String welcome = messageSource.getMessage("welcome", null, Locale.ENGLISH);
-        String hello = messageSource.getMessage("hello", new String[]{"i18n"}, Locale.ENGLISH);
-        System.out.println(hello + welcome);
-
-        model.addAttribute("i18n", messageSource.getMessage("welcome", null, Locale.ENGLISH));
+        model.addAttribute("i18n", messageSource.getMessage("welcome", null, Locale.US));
 
         return "hello";
     }
 
     @GetMapping(value = "/message")
     @ResponseBody
-    public String message() {
+    public String message(HttpServletRequest request) {
         //获取当前的本地区域信息
         Locale locale = LocaleContextHolder.getLocale();
-        Locale aDefault = Locale.getDefault();
-        Locale english = Locale.ENGLISH;
-        Locale chinese = Locale.CHINESE;
-        //其中第二个参数为占位符数据
-        String welcome = messageSource.getMessage("welcome", null, Locale.ENGLISH);
-        String hello = messageSource.getMessage("hello", new String[]{"i18n"}, Locale.ENGLISH);
+        //或者
+        Locale locale1= RequestContextUtils.getLocale(request);
 
-//        String welcome1 = messagesUtil.getMessage("welcome", Locale.ENGLISH);
-//        String hello1 = messagesUtil.getMessage("hello", new String[]{"i18n"}, Locale.ENGLISH);
-//        System.out.println(hello1 + welcome1);
+        Locale aDefault = Locale.getDefault();
+
+        //不能使用Locale.ENGLISH
+        Locale english = Locale.US;
+        //不能Locale.CHINESE
+        Locale chinese = Locale.CHINA;
+
+        //其中第二个参数为占位符数据
+        String welcome = messageSource.getMessage("welcome", null, english);
+        String hello = messageSource.getMessage("hello", new String[]{"i18n"}, english);
+
+        String welcome1 = messagesUtil.getMessage("welcome", chinese);
+        String hello1 = messagesUtil.getMessage("hello", new String[]{"i18n"}, chinese);
+        System.out.println(hello1 + welcome1);
 
         return hello + welcome;
     }

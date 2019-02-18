@@ -33,7 +33,7 @@ public class I18nConfig implements WebMvcConfigurer {
     public LocaleResolver localeResolver() {
         SessionLocaleResolver slr = new SessionLocaleResolver();
         //设置默认区域
-        slr.setDefaultLocale(Locale.ENGLISH);
+        slr.setDefaultLocale(Locale.US);
 
         return slr;
     }
@@ -46,7 +46,7 @@ public class I18nConfig implements WebMvcConfigurer {
 //        CookieLocaleResolver clr = new CookieLocaleResolver();
 //        clr.setCookieName("localeCookie");
 //        //设置默认区域
-//        clr.setDefaultLocale(Locale.ENGLISH);
+//        clr.setDefaultLocale(Locale.US);
 //        //设置cookie有效期.
 //        clr.setCookieMaxAge(3600);
 //        return clr;
