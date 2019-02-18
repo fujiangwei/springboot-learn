@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <script th:src="@{js/jquery.min.js}"></script>
+    <script th:src="@{js/hello.js}"></script>
+</head>
+<body>
+<p><label th:text="${i18n}"></label></p>
+<p><label th:text="#{welcome}"></label></p><br/>
+<!--接口控制器切换语言-->
+<span th:text="#{lang}"></span>
+<select id="locales">
+    <option value=""></option>
+    <option value="zh" th:text="zh"></option>
+    <option value="en" th:text="en"></option>
+</select>
+<!--参数修改用户区域-->
+<br/><br/>
+点击切换语言：
+<a href="/hello?lang=zh_CN">简体中文</a> &nbsp;&nbsp;
+<a href="/hello?lang=en_US">English(US)</a><br>
+</body>
+</html>

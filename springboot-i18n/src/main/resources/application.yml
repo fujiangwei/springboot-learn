@@ -1,0 +1,11 @@
+# 服务端口
+server:
+  port: 8080
+
+#i18n
+spring:
+  messages:
+    encoding: UTF-8
+    basename: i18n/messages
+  thymeleaf:
+    cache: false
