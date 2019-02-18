@@ -7,5 +7,7 @@ spring:
   messages:
     encoding: UTF-8
     basename: i18n/messages
+    #设置缓存时长
+    cache-duration: 3600
   thymeleaf:
     cache: false
