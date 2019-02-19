@@ -3,10 +3,6 @@
 ```$xslt
 表映射的实体类缺少标识主键Id注解 @Id      
 ```
-> org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'userService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl': Unsatisfied dependency expressed through field 'userRepository';
-```$xslt
-
-```
 
 ## JPA各项注解
    1、@Entity(name="EntityName") 

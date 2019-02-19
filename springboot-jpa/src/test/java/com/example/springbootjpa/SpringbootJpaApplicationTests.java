@@ -25,7 +25,16 @@ public class SpringbootJpaApplicationTests {
 	public void test() {
 //		System.out.println(userService.findByUserId(1));
 //		System.out.println(userService.findUser("hzq"));
-		List<User> users = userService.listUser();
+//		List<User> users = userService.listUser();
+//		System.out.println(users.size());
+		final String sql = "select user_name username from user";
+
+		List<User> users = userService.findUsersBySql(sql, User.class);
+
+		final String sql2 = "select user_name username from user where user_id = 1";
+
+		Object user = userService.findUserBySql(sql2, User.class);
+
 		System.out.println(users.size());
 	}
 

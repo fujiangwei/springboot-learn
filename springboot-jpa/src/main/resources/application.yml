@@ -8,7 +8,7 @@ spring:
         username: root
         password: root
 
-    #jpaÅäÖÃ
+    #jpaé…ç½®
     jpa:
         database: mysql
         show-sql: true

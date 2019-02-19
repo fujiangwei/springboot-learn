@@ -21,4 +21,8 @@ public interface UserService {
 
     User findUser(String name);
 
+    List<User> findUsersBySql(final String sql, final Class clazz);
+
+    Object findUserBySql(final String sql, final Class clazz);
+
 }
