@@ -1,0 +1,20 @@
+server:
+  port: 8008
+
+# Redis
+spring.redis:
+    host: localhost
+    port: 6379
+    password: root
+    timeout: 1000
+    jedis.pool:
+      #jedis最大分配对象
+      maxTotal: 1024
+      #jedis最大保存idel状态对象数
+      maxIdle: 200
+      #jedis池没有对象返回时，最大等待时间
+      maxWaitMillis: 1000
+      testOnBorrow: true
+      testOnReturn: true
+      blockWhenExhausted: false
+
