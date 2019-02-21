@@ -25,6 +25,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 默认为ConcurrenMapCacheManager
+     */
     @Autowired
     private CacheManager cacheManager;
 
@@ -34,9 +37,10 @@ public class UserController {
     }
 
     @GetMapping(value = "selectUserById")
-    public User selectUserById(Integer id) {
-        User user = userService.selectUserById(id);
-        User user1 = userService.selectUserById(id);
+    public User selectUserById(String id) {
+        Integer userId = Integer.parseInt(id);
+        User user = userService.selectUserById(userId);
+        User user1 = userService.selectUserById(userId);
         return user1;
     }
 

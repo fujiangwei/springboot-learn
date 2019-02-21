@@ -7,11 +7,12 @@ import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
 @MapperScan(basePackages = {"com.example.springbootcache.mapper"})
+//启用cache缓存
 @EnableCaching
 public class SpringbootCacheApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootCacheApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootCacheApplication.class, args);
+    }
 
 }
