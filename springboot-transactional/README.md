@@ -14,6 +14,14 @@ Spring 事务管理分为编码式和声明式的两种方式:
    * no-rollback- for	抛出 no-rollback-for 指定的异常类型，不回滚事务。
    
   > propagation 属性
+    
+* REQUIRED 支持当前已经存在的事务，如果还没有事务，就创建一个新事务。
+* MANDATORY 支持当前已经存在的事务，如果还没有事务，就抛出一个异常。
+* NESTED 在当前事务中创建一个嵌套事务，如果还没有事务，那么就简单地创建一个新事务。
+* REQUIRES_NEW 挂起当前事务，创建一个新事务，如果还没有事务，就简单地创建一个新事务。
+* NEVER 强制要求不在事务中运行，如果当前存在一个事务，则抛出异常。
+* NOT_SUPPORTED 强制不在事务中运行，如果当前存在一个事务，则挂起该事务。
+* SUPPORTS 支持当前事务，如果没有事务那么就不在事务中运行。
   
   需要注意下面三种 propagation 可以不启动事务。本来期望目标方法进行事务管理，但若是错误的配置这三种 propagation，事务将不会发生回滚。
   
@@ -50,3 +58,35 @@ intercept 方法或 JdkDynamicAopProxy 的 invoke 方法会间接调用 Abstract
             // Don't allow no-public methods as required.
             if (allowPublicMethodsOnly() && !Modifier.isPublic(method.getModifiers())) {
     return null;}
+    
+## 整合
+> pom依赖
+
+    <!--事务注解依赖-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+    
+> 启用缓存:使用@EnableTransactionManagement 注解来启用事务管理功能，该注解可以加在启动类上或者单独加个配置类来处理。
+
+    @SpringBootApplication
+    @EnableTransactionManagement
+    @MapperScan(basePackages = {"com.example.springboottransactional.mapper"})
+    public class SpringbootTransactionalApplication {
+    
+    	public static void main(String[] args) {
+    		SpringApplication.run(SpringbootTransactionalApplication.class, args);
+    	}
+    
+    }
+    
+> 使用:在类或者方法上使用@Transactional注解
+
+    @Override
+    @Transactional
+    public void update(User user) {
+        userMapper.update(user);
+        //异常
+        int result = 6 / 0;
+    }
