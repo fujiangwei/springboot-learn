@@ -1,0 +1,13 @@
+
+server:
+  port: 8080
+
+storage:
+  #accessKey
+  AK: xxxx
+  #secretKey
+  SK: xxxx
+  #访问域名
+  domain: xxxx
+  #存储名
+  bucket: xxxx
