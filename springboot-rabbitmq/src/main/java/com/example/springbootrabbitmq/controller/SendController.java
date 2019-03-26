@@ -1,13 +1,20 @@
 package com.example.springbootrabbitmq.controller;
 
 import com.example.springbootrabbitmq.service.AckSenderService;
+import com.example.springbootrabbitmq.service.ConfirmService;
+import com.example.springbootrabbitmq.service.TransactionService;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 /**
  * descripiton:
@@ -28,6 +35,12 @@ public class SendController {
 
     @Autowired
     private AckSenderService senderService;
+
+    @Autowired
+    private TransactionService txService;
+
+    @Autowired
+    private ConfirmService confirmService;
 
     /**
      * 单条消息发送
@@ -126,6 +139,42 @@ public class SendController {
         senderService.sendObj();
 
         return "ok";
+    }
+
+    /**
+     * @return
+     */
+    @GetMapping(value = "txSend")
+    public String txSend() throws URISyntaxException, IOException, TimeoutException, NoSuchAlgorithmException, KeyManagementException {
+        txService.publish();
+        return "txSend";
+    }
+
+    /**
+     * @return
+     */
+    @GetMapping(value = "txRec")
+    public String txRec() throws InterruptedException, TimeoutException, IOException {
+        txService.consume();
+        return "txRec";
+    }
+
+    /**
+     * @return
+     */
+    @GetMapping(value = "confirmSend")
+    public String confirmSend() throws InterruptedException, TimeoutException, IOException {
+        confirmService.publish();
+        return "confirmSend";
+    }
+
+    /**
+     * @return
+     */
+    @GetMapping(value = "confirmConsume")
+    public String confirmConsume() throws InterruptedException, TimeoutException, IOException {
+        confirmService.consume();
+        return "confirmConsume";
     }
 
 }
