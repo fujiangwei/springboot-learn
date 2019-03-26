@@ -1,17 +1,12 @@
 package com.example.springbootrabbitmq.controller;
 
+import com.example.springbootrabbitmq.service.AckSenderService;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,8 +26,12 @@ public class SendController {
     @Autowired
     private AmqpTemplate amqpTemplate;
 
+    @Autowired
+    private AckSenderService senderService;
+
     /**
      * 单条消息发送
+     *
      * @return
      */
     @GetMapping(value = "send")
@@ -45,13 +44,14 @@ public class SendController {
 
     /**
      * 发送多条消息到一个队列，该队列有多个消费者
+     *
      * @return
      */
     @GetMapping(value = "sendMore")
     public String sendMore() {
         List<String> result = new ArrayList<String>();
         //发送10条数据
-        for (int i = 0; i < 10; i ++) {
+        for (int i = 0; i < 10; i++) {
             String content = "第" + (i + 1) + "次发送 Date:" + System.currentTimeMillis();
             //发送默认交换机对应的的队列kinson,此时有两个消费者MyReceiver1和MyReceiver2,每条消息只会被消费一次
             amqpTemplate.convertAndSend("kinson", content);
@@ -62,13 +62,14 @@ public class SendController {
 
     /**
      * 发送多条消息到多个队列
+     *
      * @return
      */
     @GetMapping(value = "sendMoreQueue")
     public String sendMoreQueue() {
         List<String> result = new ArrayList<String>();
         //发送10条数据
-        for (int i = 0; i < 10; i ++) {
+        for (int i = 0; i < 10; i++) {
             String content = "第" + (i + 1) + "次发送 Date:" + System.currentTimeMillis();
             //发送默认交换机对应的的队列kinson
             amqpTemplate.convertAndSend("kinson", content);
@@ -82,6 +83,7 @@ public class SendController {
     /**
      * Topic模式的exchange消息发送，此时topic.msg符合队列topic.msg和topic.msgs绑定的routingKey，
      * 故发送的消息会传送到队列topic.msg和topic.msgs
+     *
      * @return
      */
     @GetMapping(value = "topicSend")
@@ -95,6 +97,7 @@ public class SendController {
     /**
      * Topic模式的exchange消息发送，此时topic.msgs符合只符合topic.msgs绑定的routingKey，
      * 故发送的消息只传送到队列topic.msgs
+     *
      * @return
      */
     @GetMapping(value = "topicSend2")
@@ -104,4 +107,25 @@ public class SendController {
         amqpTemplate.convertAndSend("topicExchange", "topic.msgs", content);
         return content;
     }
+
+    /**
+     * @return
+     */
+    @GetMapping(value = "ackSend")
+    public String ackSend() {
+        senderService.send();
+
+        return "ok";
+    }
+
+    /**
+     * @return
+     */
+    @GetMapping(value = "sendObj")
+    public String sendObj() {
+        senderService.sendObj();
+
+        return "ok";
+    }
+
 }

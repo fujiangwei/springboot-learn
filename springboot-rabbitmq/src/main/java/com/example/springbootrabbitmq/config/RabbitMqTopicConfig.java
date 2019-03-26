@@ -36,7 +36,7 @@ public class RabbitMqTopicConfig {
     }
 
     @Bean
-    public TopicExchange exchange() {
+    TopicExchange exchange() {
         return new TopicExchange("topicExchange");
     }
 
@@ -47,7 +47,7 @@ public class RabbitMqTopicConfig {
      * @return
      */
     @Bean
-    public Binding bindingQueue2Exchange(Queue queueMsg, TopicExchange topicExchange) {
+    Binding bindingQueue2Exchange(Queue queueMsg, TopicExchange topicExchange) {
         return BindingBuilder.bind(queueMsg).to(topicExchange).with("topic.msg");
     }
 
@@ -58,7 +58,7 @@ public class RabbitMqTopicConfig {
      * @return
      */
     @Bean
-    public Binding bindingQueue2Exchange2(Queue queueMsgs, TopicExchange topicExchange) {
+    Binding bindingQueue2Exchange2(Queue queueMsgs, TopicExchange topicExchange) {
         return BindingBuilder.bind(queueMsgs).to(topicExchange).with("topic.#");
     }
 
