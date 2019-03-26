@@ -113,7 +113,7 @@ public class ConfirmService {
     }
 
     /**
-     * 消费消息
+     * 消费消息，多条消费
      *
      * @throws IOException
      * @throws TimeoutException

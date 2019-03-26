@@ -48,7 +48,7 @@ public class TransactionService {
     private String password;
 
     /**
-     * 发生消息
+     * 发送消息
      *
      * @throws KeyManagementException
      * @throws NoSuchAlgorithmException
@@ -99,7 +99,7 @@ public class TransactionService {
     }
 
     /**
-     * 消费消息
+     * 消费消息，单条消息消费
      *
      * @throws IOException
      * @throws TimeoutException
