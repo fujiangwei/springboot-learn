@@ -7,3 +7,12 @@
 [Mycat 配置文件schema.xml](https://www.cnblogs.com/kingsonfu/p/10626544.html)
 [Mycat 配置文件server.xml](https://www.cnblogs.com/kingsonfu/p/10627285.html)
 [Mycat 配置文件rule.xml](https://www.cnblogs.com/kingsonfu/p/10627423.html)
+
+# 问题
+
+> 在新增用户时报错：partition table, insert must provide ColumnList错误
+
+    将insert into tb_user VALUES (#{userId}, #{userName},#{companyId});
+    改为
+    insert into tb_user(id, name, company_id) VALUES (#{userId}, #{userName},#{companyId});
+    即加上所有的列字段
