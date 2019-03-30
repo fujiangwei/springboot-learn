@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springbootmybatismycat.mapper.CompanyMapper">
+
+    <resultMap type="Company" id="CompanyResult">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <select id="selectCompanyList" parameterType="Company" resultMap="CompanyResult">
+      select * from tb_company
+    </select>
+
+    <insert id="addCompany" parameterType="Company">
+        insert into tb_company VALUES (#{id}, #{name});
+    </insert>
+
+</mapper>

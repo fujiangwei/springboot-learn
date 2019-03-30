@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springbootmybatismycat.mapper.UserMapper">
+
+    <resultMap type="User" id="UserResult">
+        <id     property="userId"       column="id"      />
+        <result property="userName"     column="name"    />
+        <result property="companyId"     column="company_id"    />
+    </resultMap>
+
+    <select id="selectUserList" parameterType="User" resultMap="UserResult">
+      select * from tb_user;
+    </select>
+
+    <insert id="addUser" parameterType="User">
+        insert into tb_user(id, name, company_id) VALUES (#{userId}, #{userName},#{companyId});
+    </insert>
+
+</mapper>

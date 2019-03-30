@@ -1,0 +1,21 @@
+#设置应用端口
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # Mycat连接
+    url: jdbc:mysql://localhost:8066/springboot?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+
+# MyBatis
+mybatis:
+    type-aliases-package: com.example.springbootmybatismycat.domain
+    mapper-locations: classpath:/mybatis/*.xml
+    #sql打印配置
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
