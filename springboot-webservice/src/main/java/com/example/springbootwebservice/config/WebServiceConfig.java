@@ -27,6 +27,8 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 
     /**
      * DefaultWsdl11Definitionid 默认就是发布的ws的访问路径。
+     * spring-ws发布的webservice是以后缀.wsdl访问的，跟传统的?wsdl不大一样
+     *
      * @param countriesSchema
      * @return
      */
