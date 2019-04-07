@@ -62,3 +62,4 @@
 # 附加
 
 * spring-ws发布的webservice是以后缀.wsdl访问的，跟传统的?wsdl不大一样
+* 服务端由一个xsd文件开始，客户端则是由一个wsdl文件开始。
