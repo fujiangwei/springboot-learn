@@ -7,8 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cglib.reflect.FastClass;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Map;
 
 /**
@@ -20,19 +18,19 @@ import java.util.Map;
  * @modifier:
  * @since:
  */
-public class RpcServiceHandler extends SimpleChannelInboundHandler<RpcRequest> {
+public class RpcServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
 
     /**
      * 日志
      */
-    private static final Logger logger = LoggerFactory.getLogger(RpcServiceHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(RpcServerHandler.class);
 
     /**
      * 保存注册服务（服务接口名称：服务接口对象）
      */
     private Map<String, Object> handleMap;
 
-    public RpcServiceHandler(Map<String, Object> handleMap) {
+    public RpcServerHandler(Map<String, Object> handleMap) {
         this.handleMap = handleMap;
     }
 

@@ -4,7 +4,6 @@ import com.example.springbootrpc.model.RpcRequest;
 import com.example.springbootrpc.model.RpcResponse;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
-import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,13 +22,12 @@ import java.util.concurrent.CountDownLatch;
  */
 public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(RpcClientHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(RpcClientHandler.class);
 
-    private SocketAddress remotePeer;
+    private ConcurrentHashMap<String, RpcFuture> pendingRPC = new ConcurrentHashMap<>();
 
     private volatile Channel channel;
-
-    private ConcurrentHashMap<String, RpcFuture> pendingRPCMap = new ConcurrentHashMap();
+    private SocketAddress remotePeer;
 
     public Channel getChannel() {
         return channel;
@@ -39,52 +37,54 @@ public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> {
         return remotePeer;
     }
 
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        super.channelActive(ctx);
+        this.remotePeer = this.channel.remoteAddress();
+    }
+
+    @Override
+    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
+        super.channelRegistered(ctx);
+        this.channel = ctx.channel();
+    }
+
+    @Override
+    public void channelRead0(ChannelHandlerContext ctx, RpcResponse response) throws Exception {
+        String requestId = response.getRequestId();
+        RpcFuture rpcFuture = pendingRPC.get(requestId);
+        if (rpcFuture != null) {
+            pendingRPC.remove(requestId);
+            rpcFuture.done(response);
+        }
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        logger.error("client caught exception", cause);
+        ctx.close();
+    }
+
     public void close() {
         channel.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
     }
 
     public RpcFuture sendRequest(RpcRequest request) {
         final CountDownLatch latch = new CountDownLatch(1);
-        RpcFuture future = new RpcFuture(request);
-        pendingRPCMap.put(request.getRequestId(), future);
-
-        channel.writeAndFlush(request).addListener((channelFuture) -> {
-            latch.countDown();
+        RpcFuture rpcFuture = new RpcFuture(request);
+        pendingRPC.put(request.getRequestId(), rpcFuture);
+        channel.writeAndFlush(request).addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(ChannelFuture future) {
+                latch.countDown();
+            }
         });
         try {
-            //后面的线程阻塞在当前线程处理完成之后
             latch.await();
         } catch (InterruptedException e) {
-            LOGGER.error(e.getMessage());
+            logger.error(e.getMessage());
         }
-        return future;
-    }
 
-    @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, RpcResponse rpcResponse) throws Exception {
-        String requestId = rpcResponse.getRequestId();
-        RpcFuture future = pendingRPCMap.get(requestId);
-        if (null != future) {
-            pendingRPCMap.remove(requestId);
-            future.done(rpcResponse);
-        }
-    }
-
-    @Override
-    public void channelActive(ChannelHandlerContext chc) throws Exception {
-        super.channelActive(chc);
-        this.remotePeer = this.channel.remoteAddress();
-    }
-
-    @Override
-    public void channelRegistered(ChannelHandlerContext chc) throws Exception {
-        super.channelRegistered(chc);
-        this.channel = chc.channel();
-    }
-
-    @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        LOGGER.error("client caught exception", cause);
-        ctx.close();
+        return rpcFuture;
     }
 }

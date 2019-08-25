@@ -25,11 +25,10 @@ public class RpcDecoder extends ByteToMessageDecoder {
     }
 
     @Override
-    protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf in, List<Object> out) throws Exception {
-        if (in.readableBytes() > 4) {
+    public final void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
+        if (in.readableBytes() < 4) {
             return;
         }
-
         in.markReaderIndex();
         int dataLength = in.readInt();
 
@@ -37,14 +36,12 @@ public class RpcDecoder extends ByteToMessageDecoder {
             in.resetReaderIndex();
             return;
         }
-
         byte[] data = new byte[dataLength];
         in.readBytes(data);
 
         Object obj = SerializationUtil.deserialize(data, genericClass);
 
         out.add(obj);
-
     }
 }
 

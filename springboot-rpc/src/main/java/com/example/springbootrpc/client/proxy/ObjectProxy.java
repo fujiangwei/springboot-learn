@@ -23,11 +23,7 @@ import java.util.UUID;
  */
 public class ObjectProxy<T> implements InvocationHandler, IAsyncObjectProxy {
 
-    /**
-     * 日志
-     */
     private static final Logger LOGGER = LoggerFactory.getLogger(ObjectProxy.class);
-
     private Class<T> clazz;
 
     public ObjectProxy(Class<T> clazz) {
@@ -36,16 +32,16 @@ public class ObjectProxy<T> implements InvocationHandler, IAsyncObjectProxy {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        if (method.getDeclaringClass() == Object.class) {
+        if (Object.class == method.getDeclaringClass()) {
             String name = method.getName();
-            if (StringUtils.equals("equals", name)) {
-                return proxy = args[0];
-            } else if (StringUtils.equals("hashCode", name)) {
+            if ("equals".equals(name)) {
+                return proxy == args[0];
+            } else if ("hashCode".equals(name)) {
                 return System.identityHashCode(proxy);
-            } else if (StringUtils.equals("toString", name)) {
-                return proxy.getClass().getName() + "@"
-                        + Integer.toHexString(System.identityHashCode(proxy))
-                        + ", with InvocationHandler " + this;
+            } else if ("toString".equals(name)) {
+                return proxy.getClass().getName() + "@" +
+                        Integer.toHexString(System.identityHashCode(proxy)) +
+                        ", with InvocationHandler " + this;
             } else {
                 throw new IllegalStateException(String.valueOf(method));
             }
@@ -53,11 +49,11 @@ public class ObjectProxy<T> implements InvocationHandler, IAsyncObjectProxy {
 
         RpcRequest request = new RpcRequest();
         request.setRequestId(UUID.randomUUID().toString());
-        request.setMethodName(method.getName());
         request.setClassName(method.getDeclaringClass().getName());
+        request.setMethodName(method.getName());
         request.setParameterTypes(method.getParameterTypes());
-        request.setParameters(method.getParameters());
-
+        request.setParameters(args);
+        // Debug
         LOGGER.debug("声明class为：{}，方法名为：{}", method.getDeclaringClass().getName(), method.getName());
         Class<?>[] parameterTypes = method.getParameterTypes();
         for (int i = 0; i < parameterTypes.length; i ++) {
@@ -67,8 +63,8 @@ public class ObjectProxy<T> implements InvocationHandler, IAsyncObjectProxy {
             LOGGER.debug("第" + i + "个方法参数：{}", args[i].toString());
         }
 
-        RpcClientHandler clientHandler = ConnectManage.getInstance().chooseHandler();
-        RpcFuture rpcFuture = clientHandler.sendRequest(request);
+        RpcClientHandler handler = ConnectManage.getInstance().chooseHandler();
+        RpcFuture rpcFuture = handler.sendRequest(request);
         return rpcFuture.get();
     }
 
@@ -81,15 +77,15 @@ public class ObjectProxy<T> implements InvocationHandler, IAsyncObjectProxy {
     }
 
     private RpcRequest createRequest(String className, String methodName, Object[] args) {
-
         RpcRequest request = new RpcRequest();
         request.setRequestId(UUID.randomUUID().toString());
         request.setClassName(className);
         request.setMethodName(methodName);
         request.setParameters(args);
 
-        Class<?>[] parameterTypes = new Class<?>[args.length];
-        for (int i = 0; i < parameterTypes.length; i ++) {
+        Class[] parameterTypes = new Class[args.length];
+        // Get the right class type
+        for (int i = 0; i < args.length; i++) {
             parameterTypes[i] = getClassType(args[i]);
         }
         request.setParameterTypes(parameterTypes);
@@ -106,8 +102,8 @@ public class ObjectProxy<T> implements InvocationHandler, IAsyncObjectProxy {
         return request;
     }
 
-    private Class<?> getClassType(Object arg) {
-        Class<?> classType = arg.getClass();
+    private Class<?> getClassType(Object obj) {
+        Class<?> classType = obj.getClass();
         String typeName = classType.getName();
         switch (typeName) {
             case "java.lang.Integer":

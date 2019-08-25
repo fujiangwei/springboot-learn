@@ -2,7 +2,6 @@ package com.example.springbootrpc.server;
 
 import com.example.springbootrpc.channelhandel.RpcDecoder;
 import com.example.springbootrpc.channelhandel.RpcEncoder;
-import com.example.springbootrpc.client.RpcClientHandler;
 import com.example.springbootrpc.model.RpcRequest;
 import com.example.springbootrpc.model.RpcResponse;
 import io.netty.channel.ChannelInitializer;
@@ -37,9 +36,9 @@ public class RpcServerInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
         ChannelPipeline pipeline = socketChannel.pipeline();
-        pipeline.addLast(new LengthFieldBasedFrameDecoder(65536, 0, 4, 0, 0))
-                .addLast(new RpcEncoder(RpcResponse.class))
+        pipeline.addLast(new RpcEncoder(RpcResponse.class))
+                .addLast(new LengthFieldBasedFrameDecoder(65536, 0, 4, 0, 0))
                 .addLast(new RpcDecoder(RpcRequest.class))
-                .addLast(new RpcServiceHandler(this.handleMap));
+                .addLast(new RpcServerHandler(this.handleMap));
     }
 }
