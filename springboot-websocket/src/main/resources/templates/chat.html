@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <meta charset = "UFT-8" />
+    <title>Spring Boot websocket</title>
+    <script src="/js/jquery-1.9.1.js" type="text/javascript"></script>
+</head>
+<body>
+<div>sid : <input id="sid" name="sid" type="text" th:value="${sid}"></div>
+<div> clientMsg : <input id="contentText" name="contentText" type="text" value="" /></div>
+<div>
+    <input type="button" value="开启socket" onclick="openSocket()" />
+    <input type="button" value="发送消息" onclick="sendMessage()" />
+</div>
+服务端返回数据： <div id="serverMsg"></div>
+</body>
+<script>
+    var socket;
+    function openSocket() {
+        if(typeof(WebSocket) == "undefined") {
+            console.log("您的浏览器不支持WebSocket");
+        }else{
+            console.log("您的浏览器支持WebSocket");
+            //实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
+            var sid= $("#sid").val();
+            console.log(sid);
+            socket = new WebSocket("ws://127.0.0.1:8080/websocket/" + sid);
+            //打开事件
+            socket.onopen = function() {
+                console.log("websocket已打开");
+                //socket.send("这是来自客户端的消息" + location.href + new Date());
+            };
+            //获得消息事件
+            socket.onmessage = function(msg) {
+                console.log(msg.data);
+                //发现消息进入    开始处理前端触发逻辑
+                $("#serverMsg").html(msg.data);
+            };
+            //关闭事件
+            socket.onclose = function() {
+                console.log("websocket已关闭");
+                alert("websocket已关闭");
+            };
+            //发生了错误事件
+            socket.onerror = function() {
+                console.log("websocket发生了错误");
+            }
+        }
+    }
+    function sendMessage() {
+        if(typeof(WebSocket) == "undefined") {
+            console.log("您的浏览器不支持WebSocket");
+        }else {
+            console.log("您的浏览器支持WebSocket");
+            if (null == socket || undefined == socket) {
+                $("#serverMsg").html("还未连接,请先连接");
+                return;
+            }
+            console.log('[{"fromSid":"'+$("#sid").val()+'","clientMsg":"'+$("#contentText").val()+'"}]');
+            socket.send('[{"fromSid":"'+$("#sid").val()+'","clientMsg":"'+$("#contentText").val()+'"}]');
+        }
+    }
+</script>
+</html>

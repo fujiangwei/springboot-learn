@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <meta charset = "UFT-8" />
+    <title>Spring Boot websocket</title>
+    <script src="/js/jquery-1.9.1.js" type="text/javascript"></script>
+</head>
+<body>
+<h4>Welcome to websocket 欢迎！</h4>
+<input id="sid" th:value="${sid}" type="hidden"></input>
+<div id="msg"></div>
+</body>
+<!--th:inline="javascript" 用于获取后端绑定的值-->
+<script th:inline="javascript">
+    var socket;
+    if(typeof(WebSocket) == "undefined") {
+        console.log("浏览器不支持WebSocket");
+    } else {
+        // 获取后端绑定的值
+        var test= [[${sid}]];
+//        console.log(test);
+        var sid = document.getElementById("sid").value;
+        console.log("浏览器支持WebSocket" + sid);
+        var sidd= $("#sid").val();
+//        console.log(sidd);
+        // 连接到WebSocket，对应于后端websocket server的ServerEndpoint
+        socket = new WebSocket("ws://127.0.0.1:8080/websocket/" + sid);
+        // 打开事件
+        socket.onopen = function() {
+            console.log("Socket 已打开");
+            socket.send("客户端消息" + location.href + "   " + new Date());
+        };
+        // 消息事件
+        socket.onmessage = function(msg) {
+            console.log(msg.data);
+            $("#msg").html(msg.data);
+        };
+        // 关闭事件
+        socket.onclose = function() {
+            console.log("Socket 已关闭");
+            alert("Socket 已关闭");
+        };
+        // 异常事件
+        socket.onerror = function() {
+            console.log("Socket 错误");
+            alert("Socket 错误");
+        }
+    }
+</script>
+</html>

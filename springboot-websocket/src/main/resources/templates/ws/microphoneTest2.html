@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="浏览器捕捉麦克风功能测试2">
+    <title>浏览器捕捉麦克风功能测试2</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>浏览器捕捉麦克风功能测试2</h1>
+        <hr/>
+        <div>
+            <button class="btn-start" onclick="startRecord();">开始录制</button>
+            <button class="btn-end" onclick="stopRecord();">结束录制</button>
+        </div>
+        <p class="output">点击“开始录制”按钮开始录音</p>
+        <div class="my-audio"></div>
+    </div>
+</body>
+<script type="text/javascript" src="js/media.js"></script>
+<script>
+    var microPhone = new MicroPhone();
+    var myAudio = document.querySelector('.my-audio');
+    var outputElement = document.querySelector('.output');
+
+    function startRecord() {
+        if (!microPhone.isRecording) {
+            microPhone.startRecord();
+            outputElement.innerHTML = '正在录制...';
+        }
+    }
+
+    function stopRecord() {
+        if (microPhone.isRecording) {
+            microPhone.stopRecord();
+            microPhone.updateSource(function(samples) {
+                var audio = document.createElement('audio');
+                // 编码成wav
+                var wavBuffer = encodeWAV(samples, microPhone.recorderConfig);
+                audio.src = createObjectURL(new Blob([wavBuffer], {
+                    type: 'audio/wav'
+                }));
+                if (audio.src) {
+                    audio.controls = true;
+                    audio.autoplay = true;
+                    myAudio.appendChild(audio);
+                }
+            });
+            outputElement.innerHTML = '录制完成！';
+        }
+    }
+</script>
+</html>
