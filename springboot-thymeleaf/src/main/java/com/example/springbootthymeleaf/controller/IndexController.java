@@ -15,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since:
  */
 @Controller
+@RequestMapping(value = "thymeleaf")
 public class IndexController {
 
-    @RequestMapping(value = "index")
+    @RequestMapping(value = "index/hello")
     public String index(Model model, ModelMap modelMap) {
 
         model.addAttribute("hello", "thymeleaf");
