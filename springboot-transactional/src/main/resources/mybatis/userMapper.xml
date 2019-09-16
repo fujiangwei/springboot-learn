@@ -5,12 +5,12 @@
 <mapper namespace="com.example.springboottransactional.mapper.UserMapper">
 
     <resultMap type="User" id="UserResult">
-        <id     property="userId"       column="user_id"      />
-        <result property="userName"     column="user_name"    />
+        <id property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
     </resultMap>
 
     <select id="selectUserList" parameterType="User" resultMap="UserResult">
-      select * from user
+        select * from user
     </select>
 
     <select id="selectUserById" parameterType="Integer" resultMap="UserResult">

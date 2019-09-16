@@ -17,19 +17,18 @@ import java.lang.reflect.UndeclaredThrowableException;
 /**
  * 统一异常处理类<br>
  * 捕获程序所有异常，针对不同异常，采取不同的处理方式
- *
  */
 @ControllerAdvice
 public class ExceptionHandleController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ExceptionHandleController.class);
 
-//    @ResponseBody
+    //    @ResponseBody
     @ExceptionHandler(UnauthorizedException.class)
     public String handleShiroException(Exception ex) {
         return "redirect:/error/403";
     }
 
-//    @ResponseBody
+    //    @ResponseBody
     @ExceptionHandler(AuthorizationException.class)
     public String AuthorizationException(Exception ex) {
         return "redirect:/error/401";

@@ -15,7 +15,8 @@
 </head>
 
 <body class="login">
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static"
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+     data-backdrop="static"
      data-keyboard="false">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -26,16 +27,20 @@
                             <form action="/login" method="POST" id="login-form">
                                 <h1>登录管理系统</h1>
                                 <div>
-                                    <input type="text" class="form-control" value="root" placeholder="请输入用户名" name="username" required=""/>
+                                    <input type="text" class="form-control" value="root" placeholder="请输入用户名"
+                                           name="username" required=""/>
                                 </div>
                                 <div>
-                                    <input type="password" class="form-control" value="1" placeholder="请输入密码" name="password" required=""/>
+                                    <input type="password" class="form-control" value="1" placeholder="请输入密码"
+                                           name="password" required=""/>
                                 </div>
                                 <div class="form-group" style="text-align : left">
-                                    <label><input type="checkbox" id="rememberMe" name="rememberMe" style="width: 12px; height: 12px;margin-right: 5px;">记住我</label>
+                                    <label><input type="checkbox" id="rememberMe" name="rememberMe"
+                                                  style="width: 12px; height: 12px;margin-right: 5px;">记住我</label>
                                 </div>
                                 <div>
-                                    <button type="button" class="btn btn-success btn-login" style="width: 100%;">登录</button>
+                                    <button type="button" class="btn btn-success btn-login" style="width: 100%;">登录
+                                    </button>
                                 </div>
 
                                 <div class="clearfix"></div>
@@ -65,7 +70,7 @@
             success: function (json) {
                 if (json == 200) {
                     window.location.href = "/";
-                }else{
+                } else {
                     alert("登录异常");
                 }
             }

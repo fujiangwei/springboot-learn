@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/26
  * @time: 12:12
  * @modifier:

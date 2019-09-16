@@ -19,7 +19,7 @@ import java.util.concurrent.TimeoutException;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/22
  * @time: 23:51
  * @modifier:

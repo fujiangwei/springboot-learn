@@ -9,9 +9,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 @MapperScan(basePackages = "com.example.springbootshiro.mapper")
 public class SpringbootShiroApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootShiroApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootShiroApplication.class, args);
+    }
 
 }
 

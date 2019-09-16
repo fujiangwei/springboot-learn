@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * descripiton: 设置队列
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/22
  * @time: 23:49
  * @modifier:

@@ -16,7 +16,8 @@
     <link href="https://cdn.bootcss.com/iCheck/1.0.2/skins/square/green.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.24/daterangepicker.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
+          rel="stylesheet">
     <link href="https://cdn.bootcss.com/zTree.v3/3.5.29/css/metroStyle/metroStyle.min.css" rel="stylesheet">
 
     <link href="/assets/css/shiro.core.css" rel="stylesheet">
@@ -39,8 +40,8 @@
                         <h2>尊敬的管理员</h2>
                     </div>
                 </div>
-                <br />
-            <#include "/layout/sidebar.ftl"/>
+                <br/>
+                <#include "/layout/sidebar.ftl"/>
             </div>
         </div>
         <#include "/layout/setting.ftl"/>

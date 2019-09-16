@@ -33,7 +33,7 @@ public class CustomTagDirective implements TemplateDirectiveModel {
                     Integer userId = null;
                     if (map.containsKey("userId")) {
                         String userIdStr = map.get("userId").toString();
-                        if(StringUtils.isEmpty(userIdStr)){
+                        if (StringUtils.isEmpty(userIdStr)) {
                             return;
                         }
                         userId = Integer.parseInt(userIdStr);

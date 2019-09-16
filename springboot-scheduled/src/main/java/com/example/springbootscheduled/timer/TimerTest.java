@@ -10,7 +10,7 @@ import java.util.concurrent.*;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/17
  * @time: 16:16
  * @modifier:
@@ -43,7 +43,7 @@ public class TimerTest {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                System.out.println("task run:"+ new Date());
+                System.out.println("task run:" + new Date());
             }
         };
 

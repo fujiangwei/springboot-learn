@@ -20,7 +20,7 @@ import java.util.Set;
 /**
  * descripiton: 配置JedisSentinelPool
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2018/6/26
  * @time: 23:03
  * @modifier:

@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/17
  * @time: 14:06
  * @modifier:
@@ -19,9 +19,10 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
     /**
-     *  Spring Data JPA 在后台为持久层接口创建代理对象时，会解析方法名字，并实现相应的功能。除了通过方法名字以外，它还可以通过如下两种方式指定查询语句：
-     *  Spring Data JPA 可以访问 JPA 命名查询语句。开发者只需要在定义命名查询语句时，为其指定一个符合给定格式的名字，Spring Data JPA 便会在创建代理对象时，使用该命名查询语句来实现其功能。
-     *  开发者还可以直接在声明的方法上面使用
+     * Spring Data JPA 在后台为持久层接口创建代理对象时，会解析方法名字，并实现相应的功能。除了通过方法名字以外，它还可以通过如下两种方式指定查询语句：
+     * Spring Data JPA 可以访问 JPA 命名查询语句。开发者只需要在定义命名查询语句时，为其指定一个符合给定格式的名字，Spring Data JPA 便会在创建代理对象时，使用该命名查询语句来实现其功能。
+     * 开发者还可以直接在声明的方法上面使用
+     *
      * @return
      */
 

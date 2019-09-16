@@ -3,6 +3,7 @@ package com.example.springbootshiro.service;
 import com.example.springbootshiro.domain.vo.User;
 import com.example.springbootshiro.domain.vo.UserConditionVO;
 import com.github.pagehelper.PageInfo;
+
 import java.util.List;
 
 public interface SysUserService extends AbstractService<User, Long> {

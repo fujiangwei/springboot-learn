@@ -1,13 +1,16 @@
 <!DOCTYPE html>
+<!--xmlns:th="http://www.thymeleaf.org"????????????????-->
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" >
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset = "UFT-8" />
+    <meta charset="ISO-8859-1"/>
+    <link href="css/styles.css" rel="stylesheet"/>
     <title>Spring Boot Application</title>
-    <!--<link href="/css/style.css" rel="stylesheet">-->
+    <!--<link href="css/style.css" rel="stylesheet">-->
     <link th:href="@{css/style.css}" rel="stylesheet">
 </head>
 <body>
+<!--??????????????th:????-->
 <p th:text="${hei}">hei</p>
 </body>
 </html>

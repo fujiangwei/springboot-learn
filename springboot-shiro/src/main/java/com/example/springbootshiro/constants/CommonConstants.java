@@ -3,7 +3,7 @@ package com.example.springbootshiro.constants;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/13
  * @time: 21:42
  * @modifier:

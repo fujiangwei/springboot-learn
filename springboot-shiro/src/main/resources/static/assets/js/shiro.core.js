@@ -5,7 +5,8 @@
     $.extend($.fn, {
         zydSelect: function (options) {
             var op = $.extend({firstText: '请选择', firstValue: ''}, options);
-            function onchange(event){
+
+            function onchange(event) {
                 var $child = $("#" + event.data.$child);
                 var $parent = event.data.$parent;
                 var parentValue = $parent.val();
@@ -16,12 +17,12 @@
                     return false;
                 }
                 $.ajax({
-                    type:'POST',
-                    dataType:"json",
-                    url:event.data.childUrl.replace("{value}", encodeURIComponent($parent.val())),
+                    type: 'POST',
+                    dataType: "json",
+                    url: event.data.childUrl.replace("{value}", encodeURIComponent($parent.val())),
                     cache: false,
-                    data:{},
-                    success: function(json){
+                    data: {},
+                    success: function (json) {
                         var childData;
                         if (json.status != 200 || !(childData = json.data) || childData.length == 0) {
                             console.error(json.message);
@@ -30,7 +31,7 @@
                         $child.removeAttr('disabled');
                         $parent.removeAttr('name');
                         var html = '<option value="' + op.firstValue + '">' + op.firstText + '</option>';
-                        $.each(childData, function(i){
+                        $.each(childData, function (i) {
                             html += '<option value="' + childData[i]['value'] + '">' + childData[i]['text'] + '</option>';
                         });
                         $child.html(html);
@@ -38,13 +39,19 @@
                     error: $.tool.ajaxError
                 });
             }
+
             return this.each(function (i) {
                 var $this = $(this);
                 var child = $this.data("child");
                 var childUrl = $this.data('child-url') || '';
                 var defaultText = $this.data('default-text') || '';
                 if (child && childUrl) {
-                    $this.unbind("change", onchange).bind("change", {$child:child, childUrl:childUrl, $parent:$this, defaultText: defaultText}, onchange);
+                    $this.unbind("change", onchange).bind("change", {
+                        $child: child,
+                        childUrl: childUrl,
+                        $parent: $this,
+                        defaultText: defaultText
+                    }, onchange);
                 }
             });
         }
@@ -55,9 +62,9 @@ var zhyd = window.zhyd || {
         var a = function () {
             $RIGHT_COL.css("min-height", $(window).height());
             var a = $BODY.outerHeight(),
-                    b = $BODY.hasClass("footer_fixed") ? -10 : $FOOTER.height(),
-                    c = $LEFT_COL.eq(1).height() + $SIDEBAR_FOOTER.height(),
-                    d = a < c ? c : a;
+                b = $BODY.hasClass("footer_fixed") ? -10 : $FOOTER.height(),
+                c = $LEFT_COL.eq(1).height() + $SIDEBAR_FOOTER.height(),
+                d = a < c ? c : a;
             d -= $NAV_MENU.height() + b, $RIGHT_COL.css("min-height", d)
         };
         $SIDEBAR_MENU.find("a").on("click", function (b) {
@@ -120,7 +127,7 @@ function gd(a, b, c) {
             }
 
             var f = this,
-                    g = arguments;
+                g = arguments;
             d ? clearTimeout(d) : c && a.apply(f, g), d = setTimeout(h, b || 100)
         }
     };
@@ -130,22 +137,22 @@ function gd(a, b, c) {
 }(jQuery, "smartresize");
 
 var CURRENT_URL = window.location.href.split("#")[0].split("?")[0],
-        $BODY = $("body"),
-        $MENU_TOGGLE = $("#menu_toggle"),
-        $SIDEBAR_MENU = $("#sidebar-menu"),
-        $SIDEBAR_FOOTER = $(".sidebar-footer"),
-        $LEFT_COL = $(".left_col"),
-        $RIGHT_COL = $(".right_col"),
-        $NAV_MENU = $(".nav_menu"),
-        $FOOTER = $("footer"),
-        randNum = function () {
-            return Math.floor(21 * Math.random()) + 20
-        };
+    $BODY = $("body"),
+    $MENU_TOGGLE = $("#menu_toggle"),
+    $SIDEBAR_MENU = $("#sidebar-menu"),
+    $SIDEBAR_FOOTER = $(".sidebar-footer"),
+    $LEFT_COL = $(".left_col"),
+    $RIGHT_COL = $(".right_col"),
+    $NAV_MENU = $(".nav_menu"),
+    $FOOTER = $("footer"),
+    randNum = function () {
+        return Math.floor(21 * Math.random()) + 20
+    };
 $(document).ready(function () {
     $(".collapse-link").on("click", function () {
         var a = $(this).closest(".x_panel"),
-                b = $(this).find("i"),
-                c = a.find(".x_content");
+            b = $(this).find("i"),
+            c = a.find(".x_content");
         a.attr("style") ? c.slideToggle(200, function () {
             a.removeAttr("style")
         }) : (c.slideToggle(200), a.css("height", "auto")), b.toggleClass("fa-chevron-up fa-chevron-down")
@@ -198,7 +205,7 @@ $(".bulk_action input").on("ifChecked", function () {
 var originalLeave = $.fn.popover.Constructor.prototype.leave;
 $.fn.popover.Constructor.prototype.leave = function (a) {
     var c, d,
-            b = a instanceof this.constructor ? a : $(a.currentTarget)[this.type](this.getDelegateOptions()).data("bs." + this.type);
+        b = a instanceof this.constructor ? a : $(a.currentTarget)[this.type](this.getDelegateOptions()).data("bs." + this.type);
     originalLeave.call(this, a), a.currentTarget && (c = $(a.currentTarget).siblings(".popover"), d = b.timeout, c.one("mouseenter", function () {
         clearTimeout(d), c.one("mouseleave", function () {
             $.fn.popover.Constructor.prototype.leave.call(b, b)

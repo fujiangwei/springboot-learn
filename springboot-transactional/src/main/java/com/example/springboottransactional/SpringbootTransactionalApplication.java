@@ -10,8 +10,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan(basePackages = {"com.example.springboottransactional.mapper"})
 public class SpringbootTransactionalApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootTransactionalApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootTransactionalApplication.class, args);
+    }
 
 }

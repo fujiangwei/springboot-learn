@@ -11,18 +11,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class SpringbootRedisClusterApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
-	@Autowired
-	private RedisClient redisClient;
+    @Autowired
+    private RedisClient redisClient;
 
-	@Test
-	public void redis(){
-		redisClient.set("slot_curr_num_key", 6);
+    @Test
+    public void redis() {
+        redisClient.set("slot_curr_num_key", 6);
 
-		System.out.println(redisClient.get("slot_curr_num_key"));
-	}
+        System.out.println(redisClient.get("slot_curr_num_key"));
+    }
 
 }

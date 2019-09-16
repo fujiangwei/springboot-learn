@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/4/10
  * @time: 21:38
  * @modifier:
@@ -18,14 +18,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyAspect {
 
-    @Pointcut("execution(* com.example.springbootaop.service.*.*(..))")
+    @Pointcut("execution(* com.example.springbootaop.service..*.*.*(..))")
     public void pointcut() {
 
     }
 
     @Before("pointcut()")
+    public void before0() {
+        System.out.println("前置通知000000....");
+    }
+
+    @Before("pointcut()")
     public void before() {
         System.out.println("前置通知....");
+    }
+
+    @Before("pointcut()")
+    public void before2() {
+        System.out.println("前置通知22222....");
     }
 
     /**

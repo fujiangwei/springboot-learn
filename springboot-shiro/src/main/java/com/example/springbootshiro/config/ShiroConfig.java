@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/14
  * @time: 17:08
  * @modifier:
@@ -98,17 +98,13 @@ public class ShiroConfig {
      * 缓存管理器 使用Ehcache实现
      */
     @Bean
-    public EhCacheManager getEhCacheManager()
-    {
+    public EhCacheManager getEhCacheManager() {
         CacheManager cacheManager = CacheManager.getCacheManager("shiro");
         EhCacheManager em = new EhCacheManager();
-        if (StringUtils.isEmpty(cacheManager))
-        {
+        if (StringUtils.isEmpty(cacheManager)) {
             em.setCacheManagerConfigFile("classpath:ehcache/ehcache-shiro.xml");
             return em;
-        }
-        else
-        {
+        } else {
             em.setCacheManager(cacheManager);
             return em;
         }
@@ -134,8 +130,7 @@ public class ShiroConfig {
     /**
      * 记住我
      */
-    public CookieRememberMeManager rememberMeManager()
-    {
+    public CookieRememberMeManager rememberMeManager() {
         CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
         cookieRememberMeManager.setCookie(rememberMeCookie());
         cookieRememberMeManager.setCipherKey(Base64.decode("fCq+/xW488hMTCD+cmJ3aQ=="));
@@ -145,8 +140,7 @@ public class ShiroConfig {
     /**
      * cookie 属性设置
      */
-    public SimpleCookie rememberMeCookie()
-    {
+    public SimpleCookie rememberMeCookie() {
         SimpleCookie cookie = new SimpleCookie("rememberMe");
         cookie.setDomain("");
         cookie.setPath("/");
@@ -159,8 +153,7 @@ public class ShiroConfig {
      * 会话管理器
      */
     @Bean
-    public DefaultWebSessionManager sessionManager()
-    {
+    public DefaultWebSessionManager sessionManager() {
         DefaultWebSessionManager manager = new DefaultWebSessionManager();
         // 加入缓存管理器
         manager.setCacheManager(getEhCacheManager());
@@ -179,8 +172,7 @@ public class ShiroConfig {
      * 自定义Realm
      */
     @Bean
-    public UserRealm userRealm(EhCacheManager cacheManager)
-    {
+    public UserRealm userRealm(EhCacheManager cacheManager) {
         UserRealm userRealm = new UserRealm();
         userRealm.setCacheManager(cacheManager);
         userRealm.setCredentialsMatcher(credentialsMatcher());

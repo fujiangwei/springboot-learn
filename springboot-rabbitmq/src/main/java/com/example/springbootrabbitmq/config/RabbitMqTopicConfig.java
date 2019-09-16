@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * descripiton:Topic交换机配置类
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/3/25
  * @time: 12:48
  * @modifier:
@@ -42,6 +42,7 @@ public class RabbitMqTopicConfig {
 
     /**
      * 绑定topic.msg到交换机topicExchange，rotingKey为topic.#，可以匹配为topic.msg的路由Key对应的消息
+     *
      * @param queueMsg
      * @param topicExchange
      * @return
@@ -53,6 +54,7 @@ public class RabbitMqTopicConfig {
 
     /**
      * 绑定topic.msgs到交换机topicExchange，rotingKey为topic.#，可以匹配以topic.开头的所有的路由Key对应的消息
+     *
      * @param queueMsgs
      * @param topicExchange
      * @return

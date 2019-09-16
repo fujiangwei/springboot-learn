@@ -11,10 +11,8 @@ public class Md5Util {
     /**
      * 通过盐值对字符串进行MD5加密
      *
-     * @param param
-     *         需要加密的字符串
-     * @param salt
-     *         盐值
+     * @param param 需要加密的字符串
+     * @param salt  盐值
      * @return
      */
     public static String MD5(String param, String salt) {
@@ -24,8 +22,7 @@ public class Md5Util {
     /**
      * 加密字符串
      *
-     * @param s
-     *         字符串
+     * @param s 字符串
      * @return
      */
     public static String MD5(String s) {

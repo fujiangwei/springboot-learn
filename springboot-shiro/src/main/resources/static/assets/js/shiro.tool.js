@@ -37,22 +37,22 @@
             },
             ajaxSuccessConfirm: function (json, callback) {
                 if (json.status == 200) {
-                    if(json.message){
+                    if (json.message) {
                         $.tool.confirm(json.message, callback);
                     }
                 } else {
-                    if(json.message){
+                    if (json.message) {
                         $.tool.alertError(json.message);
                     }
                 }
             },
             ajaxSuccess: function (json) {
                 if (json.status == 200) {
-                    if(json.message){
+                    if (json.message) {
                         $.tool.alert(json.message);
                     }
                 } else {
-                    if(json.message){
+                    if (json.message) {
                         $.tool.alertError(json.message);
                     }
                 }
@@ -61,7 +61,7 @@
                 $.tool.alertError("网络超时！");
             },
             initToastr: function () {
-                if(toastr){
+                if (toastr) {
                     toastr.options = {
                         closeButton: true,
                         debug: false,
@@ -174,13 +174,13 @@ Date.prototype.format = function (format) {
 
     if (/(y+)/.test(format)) {
         format = format.replace(RegExp.$1, (this.getFullYear() + "")
-                .substr(4 - RegExp.$1.length));
+            .substr(4 - RegExp.$1.length));
     }
 
     for (var k in o) {
         if (new RegExp("(" + k + ")").test(format)) {
             format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k]
-                    : ("00" + o[k]).substr(("" + o[k]).length));
+                : ("00" + o[k]).substr(("" + o[k]).length));
         }
     }
     return format;

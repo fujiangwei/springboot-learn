@@ -22,7 +22,7 @@ import java.util.Locale;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/18
  * @time: 13:58
  * @modifier:
@@ -51,7 +51,7 @@ public class HelloController {
         //获取当前的本地区域信息
         Locale locale = LocaleContextHolder.getLocale();
         //或者
-        Locale locale1= RequestContextUtils.getLocale(request);
+        Locale locale1 = RequestContextUtils.getLocale(request);
 
         Locale aDefault = Locale.getDefault();
 
@@ -73,18 +73,19 @@ public class HelloController {
 
     /**
      * 切换语言,只作用于session
+     *
      * @param request
      * @param lang
      * @return
      */
     @RequestMapping("/i18n")
-    public String changeSessionLanauage(HttpServletRequest request, String lang){
+    public String changeSessionLanauage(HttpServletRequest request, String lang) {
         System.out.println(lang);
-        if(CommonConsts.LANG_ZH.equals(lang)){
+        if (CommonConsts.LANG_ZH.equals(lang)) {
             //代码中即可通过以下方法进行语言设置
-            request.getSession().setAttribute(SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME,new Locale("zh","CN"));
-        }else if(CommonConsts.LANG_EN.equals(lang)){
-            request.getSession().setAttribute(SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME,new Locale("en","US"));
+            request.getSession().setAttribute(SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME, new Locale("zh", "CN"));
+        } else if (CommonConsts.LANG_EN.equals(lang)) {
+            request.getSession().setAttribute(SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME, new Locale("en", "US"));
         }
         return "redirect:/hello";
     }

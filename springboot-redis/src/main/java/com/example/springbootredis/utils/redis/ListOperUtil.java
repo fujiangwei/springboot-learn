@@ -5,7 +5,7 @@ import redis.clients.jedis.Jedis;
 /**
  * descripiton: List 列表操作
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/22
  * @time: 22:04
  * @modifier:

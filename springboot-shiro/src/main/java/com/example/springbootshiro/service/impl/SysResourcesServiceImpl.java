@@ -117,7 +117,7 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     @Override
     public List<Map<String, Object>> listChildMenuByPid(Long pid) {
         List<SysResources> sysResources = resourceMapper.listMenuResourceByPid(pid);
-        if(CollectionUtils.isEmpty(sysResources)){
+        if (CollectionUtils.isEmpty(sysResources)) {
             return null;
         }
         List<Map<String, Object>> result = new LinkedList<>();

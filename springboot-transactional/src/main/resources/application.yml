@@ -11,8 +11,8 @@ spring:
 
 # MyBatis
 mybatis:
-    type-aliases-package: com.example.springboottransactional.domain
-    mapper-locations: classpath:/mybatis/*.xml
-    #sql打印配置
-    configuration:
-        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.example.springboottransactional.domain
+  mapper-locations: classpath:/mybatis/*.xml
+  #sql打印配置
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

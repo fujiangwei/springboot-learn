@@ -16,7 +16,7 @@ import java.util.Locale;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/18
  * @time: 16:46
  * @modifier:
@@ -27,6 +27,7 @@ public class I18nConfig implements WebMvcConfigurer {
 
     /**
      * Session方式
+     *
      * @return
      */
     @Bean
@@ -51,7 +52,6 @@ public class I18nConfig implements WebMvcConfigurer {
 //        clr.setCookieMaxAge(3600);
 //        return clr;
 //    }
-
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();

@@ -14,28 +14,28 @@ import java.util.List;
 @SpringBootTest
 public class SpringbootJpaApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private UserService userService;
 
-	@Test
-	public void test() {
+    @Test
+    public void test() {
 //		System.out.println(userService.findByUserId(1));
 //		System.out.println(userService.findUser("hzq"));
 //		List<User> users = userService.listUser();
 //		System.out.println(users.size());
-		final String sql = "select user_name username from user";
+        final String sql = "select user_name username from user";
 
-		List<User> users = userService.findUsersBySql(sql, User.class);
+        List<User> users = userService.findUsersBySql(sql, User.class);
 
-		final String sql2 = "select user_name username from user where user_id = 1";
+        final String sql2 = "select user_name username from user where user_id = 1";
 
-		Object user = userService.findUserBySql(sql2, User.class);
+        Object user = userService.findUserBySql(sql2, User.class);
 
-		System.out.println(users.size());
-	}
+        System.out.println(users.size());
+    }
 
 }

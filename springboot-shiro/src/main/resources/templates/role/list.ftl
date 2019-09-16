@@ -11,9 +11,9 @@
                 <div class="<#--table-responsive-->">
                     <div class="btn-group hidden-xs" id="toolbar">
                         <@shiro.hasPermission name="role:add">
-                        <button id="btn_add" type="button" class="btn btn-default" title="新增角色">
-                            <i class="fa fa-plus"></i> 新增角色
-                        </button>
+                            <button id="btn_add" type="button" class="btn btn-default" title="新增角色">
+                                <i class="fa fa-plus"></i> 新增角色
+                            </button>
                         </@shiro.hasPermission>
                         <@shiro.hasPermission name="role:batchDelete">
                             <button id="btn_delete_ids" type="button" class="btn btn-default" title="删除选中">
@@ -30,11 +30,13 @@
 </div>
 <#include "/layout/footer.ftl"/>
 <!--弹框-->
-<div class="modal fade bs-example-modal-sm" id="selectRole" tabindex="-1" role="dialog" aria-labelledby="selectRoleLabel">
+<div class="modal fade bs-example-modal-sm" id="selectRole" tabindex="-1" role="dialog"
+     aria-labelledby="selectRoleLabel">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title" id="selectRoleLabel">分配资源权限</h4>
             </div>
             <div class="modal-body">
@@ -56,22 +58,27 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title" id="addroleLabel">添加角色</h4>
             </div>
             <div class="modal-body">
                 <form id="addOrUpdateForm" class="form-horizontal form-label-left" novalidate>
                     <input type="hidden" name="id">
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">角色名称: <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="description">角色名称: <span
+                                    class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" class="form-control col-md-7 col-xs-12" name="description" id="description" required="required" placeholder="请输入角色名称"/>
+                            <input type="text" class="form-control col-md-7 col-xs-12" name="description"
+                                   id="description" required="required" placeholder="请输入角色名称"/>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="available">是否可用: <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="available">是否可用: <span
+                                    class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select name="available" id="available" required="required" class="form-control col-md-7 col-xs-12">
+                            <select name="available" id="available" required="required"
+                                    class="form-control col-md-7 col-xs-12">
                                 <option value="">请选择</option>
                                 <option value="0">不可用</option>
                                 <option value="1" selected="selected">可用</option>
@@ -180,7 +187,11 @@
                                 }
                                 console.log(ids);
                                 console.log(rolesId);
-                                $.post(options.saveRolesUrl, {"roleId": rolesId, "resourcesId": ids.join(",")}, function (obj) { }, 'json');
+                                $.post(options.saveRolesUrl, {
+                                    "roleId": rolesId,
+                                    "resourcesId": ids.join(",")
+                                }, function (obj) {
+                                }, 'json');
                             }
                         }
                     };

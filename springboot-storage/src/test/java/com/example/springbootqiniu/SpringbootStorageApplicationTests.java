@@ -12,22 +12,22 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class SpringbootStorageApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
-	@Autowired
-	private QiNiuStorage qiNiuStorage;
+    @Autowired
+    private QiNiuStorage qiNiuStorage;
 
-	@Autowired
-	private AliOssStorage aliOssStorage;
+    @Autowired
+    private AliOssStorage aliOssStorage;
 
-	@Test
-	public void test(){
+    @Test
+    public void test() {
 //		qiNiuStorage.upload();
 //		qiNiuStorage.deleteFile();
-		aliOssStorage.upload();
-		aliOssStorage.delete();
-	}
+        aliOssStorage.upload();
+        aliOssStorage.delete();
+    }
 
 }

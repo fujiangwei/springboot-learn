@@ -9,10 +9,10 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>country complex type的 Java 类。
- * 
- * <p>以下模式片段指定包含在此类中的预期内容。
- * 
+ * <p>country complex type锟斤拷 Java 锟洁。
+ *
+ * <p>锟斤拷锟斤拷模式片锟斤拷指锟斤拷锟斤拷锟斤拷锟节达拷锟斤拷锟叫碉拷预锟斤拷锟斤拷锟捷★拷
+ *
  * <pre>
  * &lt;complexType name="country">
  *   &lt;complexContent>
@@ -27,15 +27,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "country", namespace = "http://127.0.0.1:8080/ws", propOrder = {
-    "name",
-    "population",
-    "capital",
-    "currency"
+        "name",
+        "population",
+        "capital",
+        "currency"
 })
 public class Country {
 
@@ -50,88 +48,74 @@ public class Country {
     protected Currency currency;
 
     /**
-     * 获取name属性的值。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * 锟斤拷取name锟斤拷锟皆碉拷值锟斤拷
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
     }
 
     /**
-     * 设置name属性的值。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * 锟斤拷锟斤拷name锟斤拷锟皆碉拷值锟斤拷
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /**
-     * 获取population属性的值。
-     * 
+     * 锟斤拷取population锟斤拷锟皆碉拷值锟斤拷
      */
     public int getPopulation() {
         return population;
     }
 
     /**
-     * 设置population属性的值。
-     * 
+     * 锟斤拷锟斤拷population锟斤拷锟皆碉拷值锟斤拷
      */
     public void setPopulation(int value) {
         this.population = value;
     }
 
     /**
-     * 获取capital属性的值。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * 锟斤拷取capital锟斤拷锟皆碉拷值锟斤拷
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCapital() {
         return capital;
     }
 
     /**
-     * 设置capital属性的值。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * 锟斤拷锟斤拷capital锟斤拷锟皆碉拷值锟斤拷
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCapital(String value) {
         this.capital = value;
     }
 
     /**
-     * 获取currency属性的值。
-     * 
-     * @return
-     *     possible object is
-     *     {@link Currency }
-     *     
+     * 锟斤拷取currency锟斤拷锟皆碉拷值锟斤拷
+     *
+     * @return possible object is
+     * {@link Currency }
      */
     public Currency getCurrency() {
         return currency;
     }
 
     /**
-     * 设置currency属性的值。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Currency }
-     *     
+     * 锟斤拷锟斤拷currency锟斤拷锟皆碉拷值锟斤拷
+     *
+     * @param value allowed object is
+     *              {@link Currency }
      */
     public void setCurrency(Currency value) {
         this.currency = value;

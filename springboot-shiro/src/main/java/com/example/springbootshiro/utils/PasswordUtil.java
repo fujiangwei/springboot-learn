@@ -6,10 +6,9 @@ public class PasswordUtil {
 
     /**
      * AES 加密
-     * @param password
-     *         未加密的密码
-     * @param salt
-     *         盐值，默认使用用户名就可
+     *
+     * @param password 未加密的密码
+     * @param salt     盐值，默认使用用户名就可
      * @return
      * @throws Exception
      */
@@ -19,10 +18,9 @@ public class PasswordUtil {
 
     /**
      * AES 解密
-     * @param encryptPassword
-     *         加密后的密码
-     * @param salt
-     *         盐值，默认使用用户名就可
+     *
+     * @param encryptPassword 加密后的密码
+     * @param salt            盐值，默认使用用户名就可
      * @return
      * @throws Exception
      */

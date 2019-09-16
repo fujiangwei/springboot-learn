@@ -1,31 +1,30 @@
-
 server:
   port: 8080
 
 # Redis
 spring.redis:
-    sentinel:
-      #与redis环境配置的保持一致
-      master: mymaster
-      #节点集合以，隔开
-      nodes: localhost:26388,localhost:26380,localhost:26381
-    password: root
-    timeout: 1000
-    jedis.pool:
-      #jedis最大分配对象
-      maxTotal: 1024
-      #jedis最大保存idel状态对象数
-      maxIdle: 200
-      #jedis池没有对象返回时，最大等待时间
-      maxWaitMillis: 10000
-      testOnBorrow: true
-      testOnReturn: true
-      blockWhenExhausted: false
-      #Idle时进行连接扫描
-      testWhileIdle: true
-      #表示idle object evitor两次扫描之间要sleep的毫秒数
-      timeBetweenEvictionRunsMillis: 30000
-      #表示idle object evitor每次扫描的最多的对象数
-      numTestsPerEvictionRun: 10
-      #表示一个对象至少停留在idle状态的最短时间，然后才能被idle object evitor扫描并驱逐；这一项只有在timeBetweenEvictionRunsMillis大于0时才有意义
-      minEvictableIdleTimeMillis: 60000
+  sentinel:
+    #与redis环境配置的保持一致
+    master: mymaster
+    #节点集合以，隔开
+    nodes: localhost:26388,localhost:26380,localhost:26381
+  password: root
+  timeout: 1000
+  jedis.pool:
+    #jedis最大分配对象
+    maxTotal: 1024
+    #jedis最大保存idel状态对象数
+    maxIdle: 200
+    #jedis池没有对象返回时，最大等待时间
+    maxWaitMillis: 10000
+    testOnBorrow: true
+    testOnReturn: true
+    blockWhenExhausted: false
+    #Idle时进行连接扫描
+    testWhileIdle: true
+    #表示idle object evitor两次扫描之间要sleep的毫秒数
+    timeBetweenEvictionRunsMillis: 30000
+    #表示idle object evitor每次扫描的最多的对象数
+    numTestsPerEvictionRun: 10
+    #表示一个对象至少停留在idle状态的最短时间，然后才能被idle object evitor扫描并驱逐；这一项只有在timeBetweenEvictionRunsMillis大于0时才有意义
+    minEvictableIdleTimeMillis: 60000

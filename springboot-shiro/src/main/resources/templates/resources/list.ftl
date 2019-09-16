@@ -11,9 +11,9 @@
                 <div class="<#--table-responsive-->">
                     <div class="btn-group hidden-xs" id="toolbar">
                         <@shiro.hasPermission name="resource:add">
-                        <button id="btn_add" type="button" class="btn btn-default" title="新增资源">
-                            <i class="fa fa-plus"></i> 新增资源
-                        </button>
+                            <button id="btn_add" type="button" class="btn btn-default" title="新增资源">
+                                <i class="fa fa-plus"></i> 新增资源
+                            </button>
                         </@shiro.hasPermission>
                         <@shiro.hasPermission name="resource:batchDelete">
                             <button id="btn_delete_ids" type="button" class="btn btn-default" title="删除选中">
@@ -34,20 +34,24 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title" id="addroleLabel">添加资源链接</h4>
             </div>
             <div class="modal-body">
                 <form id="addOrUpdateForm" class="form-horizontal form-label-left" novalidate>
                     <input type="hidden" name="id">
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">资源名称: <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">资源名称: <span
+                                    class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" class="form-control col-md-7 col-xs-12" name="name" id="name" required="required" placeholder="请输入资源名称"/>
+                            <input type="text" class="form-control col-md-7 col-xs-12" name="name" id="name"
+                                   required="required" placeholder="请输入资源名称"/>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="type">资源类型: <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="type">资源类型: <span
+                                    class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select name="type" id="type" required="required" class="form-control col-md-7 col-xs-12">
                                 <option value="">请选择</option>
@@ -81,38 +85,45 @@
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="url">资源链接: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" class="form-control col-md-7 col-xs-12" name="url" id="url" placeholder="请输入资源链接"/>
+                            <input type="text" class="form-control col-md-7 col-xs-12" name="url" id="url"
+                                   placeholder="请输入资源链接"/>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="permission">资源权限: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" class="form-control col-md-7 col-xs-12" name="permission" id="permission" placeholder="请输入资源权限"/>
+                            <input type="text" class="form-control col-md-7 col-xs-12" name="permission" id="permission"
+                                   placeholder="请输入资源权限"/>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sort">资源排序: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" class="form-control col-md-7 col-xs-12" name="sort" id="sort" placeholder="请输入资源排序"/>
+                            <input type="text" class="form-control col-md-7 col-xs-12" name="sort" id="sort"
+                                   placeholder="请输入资源排序"/>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="icon">资源图标: </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" class="form-control col-md-7 col-xs-12" name="icon" id="icon" placeholder="请输入资源图标"/>
+                            <input type="text" class="form-control col-md-7 col-xs-12" name="icon" id="icon"
+                                   placeholder="请输入资源图标"/>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mobile">是否可用 <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mobile">是否可用 <span
+                                    class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <ul class="list-unstyled list-inline">
-                                <li><input type="radio" class="flat" checked="checked" name="available" value="1"> 可用</li>
+                                <li><input type="radio" class="flat" checked="checked" name="available" value="1"> 可用
+                                </li>
                                 <li><input type="radio" class="flat" name="available" value="0"> 禁用</li>
                             </ul>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mobile">外部链接 <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mobile">外部链接 <span
+                                    class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <ul class="list-unstyled list-inline">
                                 <li><input type="radio" class="flat" checked name="external" value="0"> 否</li>
@@ -146,6 +157,7 @@
         ];
         return operateBtn.join('');
     }
+
     $(function () {
         var options = {
             url: "/resources/list",

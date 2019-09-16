@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/16
  * @time: 21:07
  * @modifier:

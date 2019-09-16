@@ -19,7 +19,7 @@ import java.io.FileNotFoundException;
 /**
  * descripiton: 七牛OSS
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/23
  * @time: 21:58
  * @modifier:

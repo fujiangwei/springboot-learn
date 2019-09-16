@@ -15,7 +15,7 @@ import java.util.*;
 /**
  * descripiton: redis使用客户端
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2018/10/21
  * @time: 22:58
  * @modifier:

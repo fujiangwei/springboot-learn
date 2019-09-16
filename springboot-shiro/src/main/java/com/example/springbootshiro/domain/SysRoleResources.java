@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class SysRoleResources  implements Serializable {
+public class SysRoleResources implements Serializable {
 
     private static final long serialVersionUID = 5088697673359856350L;
 

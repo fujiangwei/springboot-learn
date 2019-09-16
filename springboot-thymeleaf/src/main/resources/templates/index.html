@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <meta charset = "UFT-8" />
+    <meta charset="ISO-8859-1"/>
+    <link href="css/styles.css" rel="stylesheet"/>
     <title>Spring Boot Application</title>
-    <link href="/css/style.css" rel="stylesheet">
-    <!--<link th:href="@{/css/style.css}" rel="stylesheet">-->
+    <link href="css/style.css" rel="stylesheet">
+    <!--<link th:href="@{css/style.css}" rel="stylesheet">-->
 </head>
 <body>
-<h4>Welcome to Thymeleaf Spring Boot web application 乱码乱码</h4>
+<h4>Welcome to Thymeleaf Spring Boot web application</h4>
 <p th:text="${hello}">hello</p>
 <p th:text="${hi}">hi</p>
-<input type="text" />
 </body>
 </html>

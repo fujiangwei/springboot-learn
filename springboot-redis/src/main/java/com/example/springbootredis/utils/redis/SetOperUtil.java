@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * descripiton: Set 集合操作
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/22
  * @time: 22:04
  * @modifier:

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/1/31
  * @time: 18:00
  * @modifier:

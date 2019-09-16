@@ -11,18 +11,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class SpringbootCacheApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
-	@Before
-	public void before(){
-		System.out.println("before test");
-	}
+    @Before
+    public void before() {
+        System.out.println("before test");
+    }
 
-	@After
-	public void after(){
-		System.out.println("after test");
-	}
+    @After
+    public void after() {
+        System.out.println("after test");
+    }
 
 }

@@ -3,7 +3,8 @@ package com.example.springbootshiro.enums;
 public enum UserStatusEnum {
 
     NORMAL(1, "正常"),
-    DISABLE(0, "禁用"),;
+    DISABLE(0, "禁用"),
+    ;
     private Integer code;
     private String desc;
 

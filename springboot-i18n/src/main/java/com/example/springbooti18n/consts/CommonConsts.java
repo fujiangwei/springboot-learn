@@ -3,7 +3,7 @@ package com.example.springbooti18n.consts;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/18
  * @time: 17:16
  * @modifier:

@@ -9,10 +9,10 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>anonymous complex type的 Java 类。
- * 
- * <p>以下模式片段指定包含在此类中的预期内容。
- * 
+ * <p>anonymous complex type锟斤拷 Java 锟洁。
+ *
+ * <p>锟斤拷锟斤拷模式片锟斤拷指锟斤拷锟斤拷锟斤拷锟节达拷锟斤拷锟叫碉拷预锟斤拷锟斤拷锟捷★拷
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -24,12 +24,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "name"
+        "name"
 })
 @XmlRootElement(name = "getCountryRequest", namespace = "http://127.0.0.1:8080/ws")
 public class GetCountryRequest {
@@ -38,24 +36,20 @@ public class GetCountryRequest {
     protected String name;
 
     /**
-     * 获取name属性的值。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * 锟斤拷取name锟斤拷锟皆碉拷值锟斤拷
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
     }
 
     /**
-     * 设置name属性的值。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * 锟斤拷锟斤拷name锟斤拷锟皆碉拷值锟斤拷
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;

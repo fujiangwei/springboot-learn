@@ -5,13 +5,13 @@
 <mapper namespace="com.example.springbootmybatismycat.mapper.UserMapper">
 
     <resultMap type="User" id="UserResult">
-        <id     property="userId"       column="id"      />
-        <result property="userName"     column="name"    />
-        <result property="companyId"     column="company_id"    />
+        <id property="userId" column="id"/>
+        <result property="userName" column="name"/>
+        <result property="companyId" column="company_id"/>
     </resultMap>
 
     <select id="selectUserList" parameterType="User" resultMap="UserResult">
-      select * from tb_user;
+        select * from tb_user;
     </select>
 
     <insert id="addUser" parameterType="User">

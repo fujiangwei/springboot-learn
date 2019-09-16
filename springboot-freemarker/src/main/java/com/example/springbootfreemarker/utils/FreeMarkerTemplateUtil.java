@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/16
  * @time: 22:24
  * @modifier:
@@ -29,7 +29,7 @@ public class FreeMarkerTemplateUtil {
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_27);
         try {
             //加载模板路径，此处对应在resource目录下
-            configuration.setClassLoaderForTemplateLoading(ClassLoader.getSystemClassLoader(),"ftl");
+            configuration.setClassLoaderForTemplateLoading(ClassLoader.getSystemClassLoader(), "ftl");
             //或者
 //            configuration.setClassForTemplateLoading(this.getClass(), "/com/mail/ftl");
             //获取对应名称的模板

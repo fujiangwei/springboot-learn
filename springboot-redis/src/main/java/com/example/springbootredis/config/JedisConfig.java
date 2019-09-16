@@ -15,7 +15,7 @@ import redis.clients.jedis.Protocol;
 /**
  * descripiton: Jedis配置，使用@Value读取application文件中的spring.redis配置
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2018/6/26
  * @time: 23:03
  * @modifier:

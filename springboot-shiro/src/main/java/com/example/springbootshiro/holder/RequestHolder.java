@@ -47,8 +47,7 @@ public class RequestHolder {
     /**
      * 获取session的Attribute
      *
-     * @param name
-     *         session的key
+     * @param name session的key
      * @return Object
      */
     public static Object getSession(String name) {

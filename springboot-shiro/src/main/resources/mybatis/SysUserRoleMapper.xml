@@ -11,10 +11,10 @@
 
     <select id="findUserIdByRoleId" parameterType="Integer" resultType="Integer">
         SELECT
-            user_id
+        user_id
         FROM
-            sys_user_role
+        sys_user_role
         WHERE
-            role_id = #{roleId}
+        role_id = #{roleId}
     </select>
 </mapper>

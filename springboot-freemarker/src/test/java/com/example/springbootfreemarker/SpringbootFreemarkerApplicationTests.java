@@ -14,31 +14,31 @@ import java.util.Map;
 @SpringBootTest
 public class SpringbootFreemarkerApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
-	//填充模板文件中的参数值
-	Map<String, Object> root = null;
-	FreeMarkerTemplateUtil freeMarkerTemplateUtil = null;
+    //填充模板文件中的参数值
+    Map<String, Object> root = null;
+    FreeMarkerTemplateUtil freeMarkerTemplateUtil = null;
 
-	@Before
-	public void setUp(){
-		freeMarkerTemplateUtil = new FreeMarkerTemplateUtil();
-		root = new HashMap<String, Object>();
-	}
+    @Before
+    public void setUp() {
+        freeMarkerTemplateUtil = new FreeMarkerTemplateUtil();
+        root = new HashMap<String, Object>();
+    }
 
-	@Test
-	public void testCreateHtml() throws Exception{
+    @Test
+    public void testCreateHtml() throws Exception {
 
-		root.put("username", "admin");
+        root.put("username", "admin");
 
-		String emailHtml = freeMarkerTemplateUtil.getEmailHtml(root, "reg.ftl");
+        String emailHtml = freeMarkerTemplateUtil.getEmailHtml(root, "reg.ftl");
 //		System.out.println(">>>>" + emailHtml);
 
-		root.put("username", "root");
-		freeMarkerTemplateUtil.print("reg.ftl", root);
+        root.put("username", "root");
+        freeMarkerTemplateUtil.print("reg.ftl", root);
 
-	}
+    }
 }
 

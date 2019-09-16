@@ -11,9 +11,9 @@
                 <div class="<#--table-responsive-->">
                     <div class="btn-group hidden-xs" id="toolbar">
                         <@shiro.hasPermission name="user:add">
-                        <button id="btn_add" type="button" class="btn btn-default" title="新增用户">
-                            <i class="fa fa-plus"></i> 新增用户
-                        </button>
+                            <button id="btn_add" type="button" class="btn btn-default" title="新增用户">
+                                <i class="fa fa-plus"></i> 新增用户
+                            </button>
                         </@shiro.hasPermission>
                         <@shiro.hasPermission name="user:batchDelete">
                             <button id="btn_delete_ids" type="button" class="btn btn-default" title="删除选中">
@@ -30,11 +30,13 @@
 </div>
 <#include "/layout/footer.ftl"/>
 <!--弹框-->
-<div class="modal fade bs-example-modal-sm" id="selectRole" tabindex="-1" role="dialog" aria-labelledby="selectRoleLabel">
+<div class="modal fade bs-example-modal-sm" id="selectRole" tabindex="-1" role="dialog"
+     aria-labelledby="selectRoleLabel">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title" id="selectRoleLabel">分配角色</h4>
             </div>
             <div class="modal-body">
@@ -56,46 +58,55 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title" id="addroleLabel">添加用户</h4>
             </div>
             <div class="modal-body">
                 <form id="addOrUpdateForm" class="form-horizontal form-label-left" novalidate>
                     <input type="hidden" name="id">
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">用户名: <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">用户名: <span
+                                    class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" class="form-control col-md-7 col-xs-12" name="username" id="username" required="required" placeholder="请输入用户名"/>
+                            <input type="text" class="form-control col-md-7 col-xs-12" name="username" id="username"
+                                   required="required" placeholder="请输入用户名"/>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">密码: <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">密码: <span
+                                    class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="password" class="form-control col-md-7 col-xs-12" id="password" name="password" required="required" placeholder="请输入密码 6位以上"/>
+                            <input type="password" class="form-control col-md-7 col-xs-12" id="password" name="password"
+                                   required="required" placeholder="请输入密码 6位以上"/>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nickname">昵称:</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" class="form-control col-md-7 col-xs-12" name="nickname" id="nickname" placeholder="请输入昵称"/>
+                            <input type="text" class="form-control col-md-7 col-xs-12" name="nickname" id="nickname"
+                                   placeholder="请输入昵称"/>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="mobile">手机:</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="tel" class="form-control col-md-7 col-xs-12" name="mobile" id="mobile" data-validate-length-range="8,20" placeholder="请输入手机号"/>
+                            <input type="tel" class="form-control col-md-7 col-xs-12" name="mobile" id="mobile"
+                                   data-validate-length-range="8,20" placeholder="请输入手机号"/>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">邮箱:</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="email" class="form-control col-md-7 col-xs-12" name="email" id="email" placeholder="请输入邮箱"/>
+                            <input type="email" class="form-control col-md-7 col-xs-12" name="email" id="email"
+                                   placeholder="请输入邮箱"/>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="qq">QQ:</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number" class="form-control col-md-7 col-xs-12" name="qq" id="qq" placeholder="请输入QQ"/>
+                            <input type="number" class="form-control col-md-7 col-xs-12" name="qq" id="qq"
+                                   placeholder="请输入QQ"/>
                         </div>
                     </div>
                 </form>
@@ -225,7 +236,10 @@
                                 }
                                 console.log(ids);
                                 console.log(userId);
-                                $.post(options.saveRolesUrl, {"userId": userId, "roleIds": ids.join(",")}, function (obj) {
+                                $.post(options.saveRolesUrl, {
+                                    "userId": userId,
+                                    "roleIds": ids.join(",")
+                                }, function (obj) {
                                 }, 'json');
                             }
                         }

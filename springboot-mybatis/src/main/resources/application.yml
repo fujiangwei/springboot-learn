@@ -11,6 +11,6 @@ spring:
 
 # MyBatis
 mybatis:
-    type-aliases-package: com.example.springbootmybatis.domain
-    mapper-locations: classpath:/mybatis/*.xml
+  type-aliases-package: com.example.springbootmybatis.domain
+  mapper-locations: classpath:/mybatis/*.xml
 

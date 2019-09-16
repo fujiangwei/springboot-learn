@@ -5,14 +5,15 @@
 <mapper namespace="com.example.springbootdruidmultsource.mapper.master.SysUserMapper">
 
     <resultMap type="com.example.springbootdruidmultsource.domain.master.SysUser" id="UserResult">
-        <id     property="userId"       column="user_id"      />
-        <result property="userName"     column="user_name"    />
+        <id property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
     </resultMap>
 
-    <select id="selectUserList" parameterType="com.example.springbootdruidmultsource.domain.master.SysUser" resultMap="UserResult">
-      select * from user
+    <select id="selectUserList" parameterType="com.example.springbootdruidmultsource.domain.master.SysUser"
+            resultMap="UserResult">
+        select * from user
     </select>
-    
+
     <update id="update" parameterType="com.example.springbootdruidmultsource.domain.master.SysUser">
         UPDATE user set user_name = #{userName} where user_id = #{userId}
     </update>

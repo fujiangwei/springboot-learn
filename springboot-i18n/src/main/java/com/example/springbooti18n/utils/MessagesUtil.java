@@ -10,7 +10,7 @@ import java.util.Locale;
 /**
  * descripiton:
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/18
  * @time: 15:48
  * @modifier:

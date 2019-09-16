@@ -27,10 +27,10 @@ public enum UserGenderEnum {
         if (code == null) {
             return UNKNOW;
         }
-        if("m".equals(code)){
+        if ("m".equals(code)) {
             return MALE;
         }
-        if("f".equals(code)){
+        if ("f".equals(code)) {
             return FEMALE;
         }
         return UNKNOW;

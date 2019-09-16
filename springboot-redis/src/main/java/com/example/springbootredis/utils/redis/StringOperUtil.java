@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * descripiton: String 字符串操作
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/22
  * @time: 22:01
  * @modifier:

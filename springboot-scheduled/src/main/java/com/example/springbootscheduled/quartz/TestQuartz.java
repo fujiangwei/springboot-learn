@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * descripiton: Quartz任务类
  *
- * @author: kinson(2219945910@qq.com)
+ * @author: kinson(2219945910 @ qq.com)
  * @date: 2019/2/17
  * @time: 21:14
  * @modifier:

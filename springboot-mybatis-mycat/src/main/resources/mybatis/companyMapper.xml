@@ -10,7 +10,7 @@
     </resultMap>
 
     <select id="selectCompanyList" parameterType="Company" resultMap="CompanyResult">
-      select * from tb_company
+        select * from tb_company
     </select>
 
     <insert id="addCompany" parameterType="Company">

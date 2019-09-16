@@ -60,7 +60,9 @@
                             return;
                         }
                     },
-                    rowStyle: options.rowStyle || function (row, index){return {};},
+                    rowStyle: options.rowStyle || function (row, index) {
+                        return {};
+                    },
                     columns: options.columns
                 });
             },
@@ -182,7 +184,7 @@ function resetForm(info) {
     });
 }
 
-function clearText($this, type, info){
+function clearText($this, type, info) {
     var $div = $this.parents(".item");
     if ($div.hasClass("bad")) {
         $div.removeClass("bad");
@@ -203,7 +205,7 @@ function clearText($this, type, info){
     } else {
         if (type === 'radio' || type === 'checkbox') {
             $this.iCheck('uncheck');
-        }else{
+        } else {
             $this.val('');
         }
     }

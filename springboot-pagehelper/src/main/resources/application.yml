@@ -1,4 +1,4 @@
-#ÉèÖÃÓ¦ÓÃ¶Ë¿Ú
+#ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã¶Ë¿ï¿½
 server:
   port: 8080
 
@@ -11,22 +11,22 @@ spring:
 
 # MyBatis
 mybatis:
-    #Êı¾İ¿âÓ³Éä¶ÔÏó°üÂ·¾¶
-    type-aliases-package: com.example.springbootpagehelper.domain
-    #mapper¶ÔÓ¦xmlÂ·¾¶
-    mapper-locations: classpath:/mybatis/*.xml
-    #sql´òÓ¡ÅäÖÃ
-    configuration:
-        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #ï¿½ï¿½ï¿½İ¿ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
+  type-aliases-package: com.example.springbootpagehelper.domain
+  #mapperï¿½ï¿½Ó¦xmlÂ·ï¿½ï¿½
+  mapper-locations: classpath:/mybatis/*.xml
+  #sqlï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-#pagehelper·ÖÒ³²å¼şÅäÖÃ
+#pagehelperï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 pagehelper:
-    #·ÖÒ³²å¼ş»á×Ô¶¯¼ì²âµ±Ç°µÄÊı¾İ¿âÁ´½Ó£¬×Ô¶¯Ñ¡ÔñºÏÊÊµÄ·ÖÒ³·½Ê½¡£
-    helper-dialect: mysql
-    #·ÖÒ³ºÏÀí»¯²ÎÊı£¬Ä¬ÈÏÖµÎªfalse¡£µ±¸Ã²ÎÊıÉèÖÃÎª true Ê±£¬pageNum<=0 Ê±»á²éÑ¯µÚÒ»Ò³£¬ pageNum>pages£¨³¬¹ı×ÜÊıÊ±£©£¬»á²éÑ¯×îºóÒ»Ò³¡£Ä¬ÈÏfalse Ê±£¬Ö±½Ó¸ù¾İ²ÎÊı½øĞĞ²éÑ¯¡£
-    reasonable: true
-    #Ö§³ÖÍ¨¹ı Mapper ½Ó¿Ú²ÎÊıÀ´´«µİ·ÖÒ³²ÎÊı£¬Ä¬ÈÏÖµfalse£¬·ÖÒ³²å¼ş»á´Ó²éÑ¯·½·¨µÄ²ÎÊıÖµÖĞ£¬×Ô¶¯¸ù¾İÉÏÃæ params ÅäÖÃµÄ×Ö¶ÎÖĞÈ¡Öµ£¬²éÕÒµ½ºÏÊÊµÄÖµÊ±¾Í»á×Ô¶¯·ÖÒ³¡£
-    support-methods-arguments: true
-    #ÎªÁËÖ§³ÖstartPage(Object params)·½·¨£¬Ôö¼ÓÁË¸Ã²ÎÊıÀ´ÅäÖÃ²ÎÊıÓ³Éä£¬ÓÃÓÚ´Ó¶ÔÏóÖĞ¸ù¾İÊôĞÔÃûÈ¡Öµ£¬ ¿ÉÒÔÅäÖÃ pageNum,pageSize,count,pageSizeZero,reasonable£¬²»ÅäÖÃÓ³ÉäµÄÓÃÄ¬ÈÏÖµ£¬ Ä¬ÈÏÖµÎªpageNum=pageNum¡£
-    params: count=countSql
+  #ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½âµ±Ç°ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½Ô¶ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ÊµÄ·ï¿½Ò³ï¿½ï¿½Ê½ï¿½ï¿½
+  helper-dialect: mysql
+  #ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½ÖµÎªfalseï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª true Ê±ï¿½ï¿½pageNum<=0 Ê±ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½Ò»Ò³ï¿½ï¿½ pageNum>pagesï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ò»Ò³ï¿½ï¿½Ä¬ï¿½ï¿½false Ê±ï¿½ï¿½Ö±ï¿½Ó¸ï¿½ï¿½İ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ²ï¿½Ñ¯ï¿½ï¿½
+  reasonable: true
+  #Ö§ï¿½ï¿½Í¨ï¿½ï¿½ Mapper ï¿½Ó¿Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ·ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Öµfalseï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½Öµï¿½Ğ£ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ params ï¿½ï¿½ï¿½Ãµï¿½ï¿½Ö¶ï¿½ï¿½ï¿½È¡Öµï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½Êµï¿½ÖµÊ±ï¿½Í»ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
+  support-methods-arguments: true
+  #Îªï¿½ï¿½Ö§ï¿½ï¿½startPage(Object params)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¸Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½Ó³ï¿½ä£¬ï¿½ï¿½ï¿½Ú´Ó¶ï¿½ï¿½ï¿½ï¿½Ğ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡Öµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ pageNum,pageSize,count,pageSizeZero,reasonableï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Öµï¿½ï¿½ Ä¬ï¿½ï¿½ÖµÎªpageNum=pageNumï¿½ï¿½
+  params: count=countSql
 

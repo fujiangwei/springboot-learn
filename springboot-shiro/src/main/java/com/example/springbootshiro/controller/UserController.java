@@ -36,9 +36,8 @@ public class UserController {
      * 保存用户角色
      *
      * @param userId
-     * @param roleIds
-     *         用户角色
-     *         此处获取的参数的角色id是以 “,” 分隔的字符串
+     * @param roleIds 用户角色
+     *                此处获取的参数的角色id是以 “,” 分隔的字符串
      * @return
      */
     @RequiresPermissions("user:allotRole")
