@@ -1,0 +1,9 @@
+# kingson-springboot-starter
+1. 新建一个maven项目
+2. 在resources目录下增加一个配置文件kingson.properties,内容随便
+3. 新建一个配置文件对应的解析配置类KingsonProperties
+4. 新建一个测试KingsonService,用于提供测试接口，注入第2步的KingsonProperties获取配置文件内容
+5. 新建一个配置类KingsonAutoConfiguration,配置条件注入设置
+6. 在resources目录新建目录META-INF,新加一个配置文件spring.factory,里面配置好KingsonAutoConfiguration配置，springBoot就是通过这个文件加载Starter的。
+7. 对项目打包mvn clean install
+8. 测试：在其他项目或模块中引入该依赖，appliation.properties配置文件中可以设置kingson.properties文件中的属性和值，如果未配置则以默认的配置文件为准。然后通过@Autowired注入KingsonService来测试对应的接口
