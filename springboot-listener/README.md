@@ -8,3 +8,7 @@
     * @EventListener注解主要通过EventListenerMethodProcessor扫描出所有带有@EventListener注解的方法，然后动态构造事件监听器，并将监听器托管到Spring应用上文中。
 3. 通过application.properties中配置context.listener.classes属性指定监听器
     * 类DelegatingApplicationListener，该类的作用是从application.properties中读取配置context.listener.classes，并将事件广播给这些配置的监听器。
+    
+    
+# Reference
+https://www.cnblogs.com/duanxz/p/11243271.html
