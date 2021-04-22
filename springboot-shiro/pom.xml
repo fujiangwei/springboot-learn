@@ -17,7 +17,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <shiro.version>1.4.0</shiro.version>
+        <shiro.version>1.7.1</shiro.version>
         <mybatis.version>2.0.0</mybatis.version>
         <commons.io.version>2.5</commons.io.version>
         <commons.lang3>3.6</commons.lang3>
