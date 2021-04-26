@@ -19,7 +19,7 @@
         <java.version>1.8</java.version>
         <shiro.version>1.4.0</shiro.version>
         <mybatis.version>2.0.0</mybatis.version>
-        <commons.io.version>2.5</commons.io.version>
+        <commons.io.version>2.7</commons.io.version>
         <commons.lang3>3.6</commons.lang3>
         <mingsoft.version>1.0.0</mingsoft.version>
         <fastjson.version>1.2.47</fastjson.version>
