@@ -14,7 +14,10 @@ spring.redis:
     maxIdle: 200
     #jedis池没有对象返回时，最大等待时间
     maxWaitMillis: 1000
+    #当该属性为true时，在调用borrowObject方法返回连接前，会调用validated方法进行校验。若校验失败，连接会从连接池中移除并销毁。同时会尝试重新借一个新的连接对象。
     testOnBorrow: true
+    #若testOnReturn属性设置为true，归还连接时，会进行检查，检查不通过，销毁
     testOnReturn: true
+    #连接耗尽时是否阻塞, false报异常,ture阻塞直到超时, 默认true
     blockWhenExhausted: false
 
