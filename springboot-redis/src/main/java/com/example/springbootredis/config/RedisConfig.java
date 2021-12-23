@@ -46,7 +46,7 @@ public class RedisConfig {
      */
     private Integer maxIdle;
     /**
-     * 控制一个pool可分配多少个jedis实例,如果是jedis 2.4以后用该属性,2.4之前用的redis.maxActive
+     * 控制一个pool可分配多少个jedis实例（jedis 2.4以后用该属性,2.4之前用的redis.maxActive）
      */
     private Long maxTotal;
     /**
@@ -68,11 +68,21 @@ public class RedisConfig {
     /**
      * 是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
      */
-    private Boolean testOnBorrow;
+    private boolean testOnBorrow;
     /**
      * 在空闲时检查有效性, 默认false
      */
     private boolean testWhileIdle;
+
+    /**
+     * testOnReturn属性设置为true，归还连接时，会进行检查，检查不通过则销毁
+     */
+    private boolean testOnReturn;
+
+    /**
+     * 连接耗尽时是否阻塞, false报异常,ture阻塞直到超时, 默认true
+     */
+    private boolean blockWhenExhausted;
 
     @Override
     public String toString() {
