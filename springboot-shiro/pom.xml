@@ -22,7 +22,7 @@
         <commons.io.version>2.5</commons.io.version>
         <commons.lang3>3.6</commons.lang3>
         <mingsoft.version>1.0.0</mingsoft.version>
-        <fastjson.version>1.2.47</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <pagehelper.version>1.2.5</pagehelper.version>
         <druid-spring-version>1.1.9</druid-spring-version>
     </properties>
